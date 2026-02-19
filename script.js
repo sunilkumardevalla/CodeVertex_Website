@@ -2233,3 +2233,122 @@ if (document.querySelector("[data-status-components]")) {
 
 setTheme(localStorage.getItem("themeMode") || "light");
 setLang(queryLang === "en" || queryLang === "es" ? queryLang : (localStorage.getItem("langMode") || "auto"));
+
+const renderBlogIndex = (posts, rootEl, activeCategory = "all", query = "") => {
+  if (!rootEl) return;
+  const normalizedQuery = String(query || "").trim().toLowerCase();
+  const filtered = posts.filter((post) => {
+    const categoryOk = activeCategory === "all" || post.category === activeCategory;
+    if (!categoryOk) return false;
+    if (!normalizedQuery) return true;
+    const haystack = [post.title, post.excerpt, post.category, ...(post.tags || [])].join(" ").toLowerCase();
+    return haystack.includes(normalizedQuery);
+  });
+
+  if (!filtered.length) {
+    rootEl.innerHTML = `<article class="card reveal"><h3>No matching articles</h3><p>Try a different category or keyword.</p><a class="inline-link" href="blog.html">Reset filters</a></article>`;
+    return;
+  }
+
+  rootEl.innerHTML = filtered.map((post) => `
+    <article class="card reveal">
+      <p class="kicker">${post.category} · ${post.read_time}</p>
+      <h3>${post.title}</h3>
+      <p>${post.excerpt}</p>
+      <a class="inline-link" href="${post.url}">Read article</a>
+    </article>
+  `).join("");
+};
+
+const renderRelatedPosts = (posts) => {
+  const rootEl = document.querySelector("[data-related-posts]");
+  const slug = document.body.getAttribute("data-blog-slug") || "";
+  if (!rootEl || !slug) return;
+
+  const current = posts.find((p) => p.slug === slug);
+  if (!current) return;
+
+  const scorePost = (candidate) => {
+    let score = 0;
+    if (candidate.category === current.category) score += 3;
+    const tagsA = new Set(current.tags || []);
+    (candidate.tags || []).forEach((tag) => {
+      if (tagsA.has(tag)) score += 1;
+    });
+    return score;
+  };
+
+  const related = posts
+    .filter((p) => p.slug !== slug)
+    .map((p) => ({ ...p, _score: scorePost(p) }))
+    .sort((a, b) => b._score - a._score)
+    .slice(0, 3);
+
+  rootEl.innerHTML = related.map((post) => `
+    <article class="card reveal">
+      <p class="kicker">${post.category} · ${post.read_time}</p>
+      <h3>${post.title}</h3>
+      <p>${post.excerpt}</p>
+      <a class="inline-link" href="${post.url}">Read article</a>
+    </article>
+  `).join("");
+};
+
+const blogIndexRoot = document.querySelector("[data-blog-index]");
+const relatedPostsRoot = document.querySelector("[data-related-posts]");
+if (blogIndexRoot || relatedPostsRoot) {
+  fetch("assets/data/blog-posts.json", { cache: "no-store" })
+    .then((res) => res.ok ? res.json() : Promise.reject(new Error("blog-posts-failed")))
+    .then((data) => {
+      const posts = Array.isArray(data?.posts) ? data.posts : [];
+
+      if (blogIndexRoot) {
+        const filterEl = document.querySelector("[data-blog-filter]");
+        const searchEl = document.querySelector("[data-blog-search]");
+
+        const categories = ["all", ...new Set(posts.map((p) => p.category).filter(Boolean))];
+        if (filterEl) {
+          filterEl.innerHTML = categories.map((category) => {
+            const label = category === "all" ? "All categories" : category;
+            return `<option value="${category}">${label}</option>`;
+          }).join("");
+        }
+
+        const runRender = () => {
+          const activeCategory = filterEl ? filterEl.value : "all";
+          const query = searchEl ? searchEl.value : "";
+          renderBlogIndex(posts, blogIndexRoot, activeCategory, query);
+        };
+
+        runRender();
+        if (filterEl) {
+          filterEl.addEventListener("change", () => {
+            runRender();
+            trackEvent("blog_filter_changed", { category: filterEl.value });
+          });
+        }
+        if (searchEl) {
+          searchEl.addEventListener("input", () => {
+            runRender();
+            trackEvent("blog_search_used", { query_length: String(searchEl.value.length) });
+          });
+        }
+
+        trackEvent("blog_index_loaded", { post_count: String(posts.length) });
+      }
+
+      if (relatedPostsRoot) {
+        renderRelatedPosts(posts);
+        trackEvent("blog_related_loaded", { post_count: String(posts.length) });
+      }
+    })
+    .catch(() => {
+      if (blogIndexRoot) {
+        blogIndexRoot.innerHTML = `<article class="card reveal"><h3>Blog feed unavailable</h3><p>Unable to load blog catalog right now.</p><a class="inline-link" href="insights.html">Open insights</a></article>`;
+      }
+      if (relatedPostsRoot) {
+        relatedPostsRoot.innerHTML = `<article class="card reveal"><h3>Related content unavailable</h3><p>Open the blog index for additional resources.</p><a class="inline-link" href="blog.html">Open blog index</a></article>`;
+      }
+      trackEvent("blog_feed_failed");
+    });
+}

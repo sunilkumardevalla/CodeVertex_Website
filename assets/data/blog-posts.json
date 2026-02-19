@@ -1,0 +1,45 @@
+{
+  "updated_at": "2026-02-19",
+  "posts": [
+    {
+      "slug": "scope-pentest-2026",
+      "title": "How to Scope an Enterprise Penetration Test in 2026",
+      "excerpt": "Scope framework to align business impact, technical depth, and remediation accountability.",
+      "url": "blog-scope-pentest-2026.html",
+      "category": "Penetration Testing",
+      "tags": ["Scoping", "Governance", "Execution"],
+      "read_time": "8 min read",
+      "date": "2026-02-19"
+    },
+    {
+      "slug": "api-security-checklist",
+      "title": "API Security Testing Checklist for Product Teams",
+      "excerpt": "A release-ready checklist that catches high-impact API weaknesses before launch windows.",
+      "url": "blog-api-security-checklist.html",
+      "category": "API Security",
+      "tags": ["Checklist", "OWASP API", "Product Security"],
+      "read_time": "7 min read",
+      "date": "2026-02-19"
+    },
+    {
+      "slug": "board-cyber-brief",
+      "title": "Board Cyber Brief Template: What Executives Actually Need",
+      "excerpt": "Turn technical findings into board-level decisions with concise risk narrative structure.",
+      "url": "blog-board-cyber-brief.html",
+      "category": "Executive Strategy",
+      "tags": ["Board Reporting", "CISO", "Risk"],
+      "read_time": "8 min read",
+      "date": "2026-02-19"
+    },
+    {
+      "slug": "cloud-iam-attack-paths",
+      "title": "Cloud IAM Attack Paths Enterprises Miss Most",
+      "excerpt": "Privilege escalation pathways and immediate mitigation priorities for cloud-first organizations.",
+      "url": "blog-cloud-iam-attack-paths.html",
+      "category": "Cloud Security",
+      "tags": ["IAM", "Privilege Escalation", "Cloud"],
+      "read_time": "9 min read",
+      "date": "2026-02-19"
+    }
+  ]
+}
