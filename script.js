@@ -2100,6 +2100,21 @@ if (document.querySelector("[data-routing-kpis]")) {
     .catch(() => trackEvent("routing_health_failed"));
 }
 
+if (document.querySelector("[data-routing-kpis]")) {
+  fetch("/api/router-health", { cache: "no-store" })
+    .then((res) => res.ok ? res.json() : Promise.reject(new Error("router-health-api-failed")))
+    .then((status) => {
+      const badge = document.querySelector("[data-routing-api-status]");
+      if (badge) {
+        badge.textContent = status.ok
+          ? `API router healthy · CRM targets: ${status.channels.crm_targets_configured} · Marketing targets: ${status.channels.marketing_targets_configured}`
+          : "API router configuration requires attention";
+      }
+      trackEvent("router_health_api_loaded", { ok: String(Boolean(status.ok)) });
+    })
+    .catch(() => trackEvent("router_health_api_failed"));
+}
+
 const consentResetBtn = document.querySelector("[data-consent-reset]");
 if (consentResetBtn) {
   consentResetBtn.addEventListener("click", () => {

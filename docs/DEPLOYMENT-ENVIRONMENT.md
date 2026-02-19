@@ -8,6 +8,7 @@
 - `CV_DEAD_LETTER_WEBHOOK`: dead-letter fallback target.
 - `CV_ROUTER_MAX_ATTEMPTS`, `CV_ROUTER_BASE_DELAY_MS`: retry controls.
 - `CV_FAIL_ON_ROUTING_ERROR`: strict fail mode toggle.
+- `CV_ALLOWED_ORIGINS`: comma-separated origin allowlist for API calls.
 
 ## API routes (Netlify)
 - `/api/track` -> `netlify/functions/track.js`
@@ -29,3 +30,7 @@
 
 ## Routing Reference
 - `docs/LEAD-ROUTING-ARCHITECTURE.md`
+
+## Security Automation
+- Run `bash scripts/security-check.sh` before production deploy.
+- CI workflow: `.github/workflows/security-baseline.yml`

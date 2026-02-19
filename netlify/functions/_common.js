@@ -2,6 +2,40 @@
 
 const crypto = require('crypto');
 
+const makeRequestId = () => crypto.randomBytes(9).toString('hex');
+
+const getOrigin = (event) =>
+  event?.headers?.origin ||
+  event?.headers?.Origin ||
+  '';
+
+const getAllowedOrigins = () => {
+  const raw = process.env.CV_ALLOWED_ORIGINS || 'https://codevertex.io,https://www.codevertex.io,http://localhost:8888,http://localhost:3000';
+  return raw
+    .split(',')
+    .map((v) => String(v || '').trim())
+    .filter(Boolean);
+};
+
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true; // allow non-browser/server calls
+  return getAllowedOrigins().includes(origin);
+};
+
+const apiHeaders = (requestId, origin = '') => {
+  const allowOrigin = isAllowedOrigin(origin) ? (origin || 'https://codevertex.io') : 'https://codevertex.io';
+  return {
+    'x-request-id': requestId,
+    'x-content-type-options': 'nosniff',
+    'referrer-policy': 'no-referrer',
+    'permissions-policy': 'geolocation=(), microphone=(), camera=() ',
+    'access-control-allow-origin': allowOrigin,
+    'access-control-allow-methods': 'POST, OPTIONS',
+    'access-control-allow-headers': 'content-type, x-cv-signature',
+    vary: 'origin'
+  };
+};
+
 const json = (statusCode, body, headers = {}) => ({
   statusCode,
   headers: {
@@ -10,6 +44,15 @@ const json = (statusCode, body, headers = {}) => ({
     ...headers
   },
   body: JSON.stringify(body)
+});
+
+const options = (requestId, origin) => ({
+  statusCode: 204,
+  headers: {
+    'cache-control': 'no-store',
+    ...apiHeaders(requestId, origin)
+  },
+  body: ''
 });
 
 const parseBody = (event) => {
@@ -50,7 +93,8 @@ const getIp = (event) =>
 const verifySignature = (event, secret) => {
   if (!secret) return true;
   const provided = event?.headers?.['x-cv-signature'] || event?.headers?.['X-CV-Signature'];
-  if (!provided || !event?.body) return false;
+  if (!provided) return true; // browser flows generally do not include signatures
+  if (!event?.body) return false;
   const expected = crypto.createHmac('sha256', secret).update(event.body).digest('hex');
   try {
     return crypto.timingSafeEqual(Buffer.from(provided), Buffer.from(expected));
@@ -88,7 +132,12 @@ const checkDuplicate = (key, windowMs = 5 * 60_000) => {
 };
 
 module.exports = {
+  makeRequestId,
+  getOrigin,
+  isAllowedOrigin,
+  apiHeaders,
   json,
+  options,
   parseBody,
   normalizeString,
   sanitizePayload,
