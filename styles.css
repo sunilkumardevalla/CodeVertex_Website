@@ -6318,3 +6318,32 @@ main iframe {
     grid-template-columns: 1fr;
   }
 }
+
+.reel-card video {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line) 84%, transparent);
+  margin: 10px 0 12px;
+  background: #030b16;
+}
+
+.reel-card .btn {
+  width: 100%;
+}
+
+figure {
+  margin: 18px 0;
+}
+
+figure img {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--line) 84%, transparent);
+  background: color-mix(in srgb, var(--bg-soft) 72%, transparent);
+}
+
+figcaption {
+  margin-top: 8px;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+}

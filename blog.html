@@ -40,7 +40,6 @@
           <a href="services.html">Services</a>
           <a href="industries.html">Industries</a>
           <a href="insights.html" class="active">Insights</a>
-          <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
         <div class="header-controls">
@@ -56,50 +55,48 @@
         <div class="container blog-hero-grid reveal">
           <div>
             <p class="kicker">CodeVertex Blog Hub</p>
-            <h1>Not just articles. Visual cyber stories, explainers, and enterprise action guides.</h1>
-            <p class="lead" data-blog-audio-source>Use this page as your content engine: technical writeups, infographic explainers, media-rich stories, and business-facing summaries designed for decision-makers and delivery teams.</p>
+            <h1>Long-form security stories with real media, infographics, and practical execution.</h1>
+            <p class="lead" data-blog-audio-source>Every feature article is designed as an executive and engineering narrative: what happened, why it matters, how to respond, and what metrics prove closure.</p>
             <div class="hero-actions">
               <a class="btn primary" href="resource-center.html">Open resource center</a>
               <a class="btn secondary" href="security-assessment.html">Start assessment</a>
               <button class="btn ghost" type="button" data-blog-audio-toggle>Play audio summary</button>
             </div>
-            <div class="stat-strip blog-stat-strip">
-              <article class="stat-item"><strong>Formats</strong><span>Text, image, infographic, audio-ready</span></article>
-              <article class="stat-item"><strong>Cadence</strong><span>Weekly publishing workflow enabled</span></article>
-              <article class="stat-item"><strong>Focus</strong><span>Revenue-aligned cyber content</span></article>
-            </div>
           </div>
           <aside class="blog-hero-media panel" data-tilt>
-            <img src="assets/graphics/cyber-anime-analyst.svg" alt="Security operations monitors" loading="eager" />
-            <div class="blog-media-caption">
-              <p>Live Threat Narrative</p>
-              <strong>Enterprise telemetry, translated into business decisions.</strong>
-            </div>
+            <img src="assets/graphics/cyber-anime-analyst.svg" alt="Animated cyber analyst" loading="eager" />
+            <div class="blog-media-caption"><p>Editorial Signal</p><strong>10+ minute reads with visual evidence and action templates.</strong></div>
           </aside>
         </div>
       </section>
 
-      <section class="section tone-cyan" data-track-section="blog_media_gallery">
+      <section class="section tone-amber" data-track-section="blog_reels">
         <div class="container">
           <header class="section-head reveal">
-            <h2>Visual content blocks for richer storytelling.</h2>
-            <p>Use these media-driven sections with your own screenshots, architecture visuals, and campaign graphics.</p>
+            <h2>Playable security reels</h2>
+            <p>These are real local video files and can be played, paused, and replayed.</p>
           </header>
-          <div class="grid three blog-media-grid">
-            <article class="card blog-media-card reveal">
-              <img src="assets/graphics/cyber-anime-engineer.svg" alt="Server room environment" loading="lazy" />
-              <h3>Attack Surface Context</h3>
-              <p>Lead each post with a scene-setting visual that communicates operational stakes.</p>
+          <div class="grid three">
+            <article class="card reel-card reel-one reveal" data-reel>
+              <h3>Reel 01: Breach Path Walkthrough</h3>
+              <video controls preload="metadata" playsinline muted loop poster="assets/graphics/cyber-anime-analyst.svg" data-reel-video>
+                <source src="assets/videos/blog/reel-breach-path.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="btn secondary" data-reel-toggle>Play reel</button>
             </article>
-            <article class="card blog-media-card reveal">
-              <img src="assets/graphics/cyber-anime-ops.svg" alt="Security and engineering collaboration" loading="lazy" />
-              <h3>Remediation Narrative</h3>
-              <p>Show cross-functional action between security, engineering, and leadership teams.</p>
+            <article class="card reel-card reel-two reveal" data-reel>
+              <h3>Reel 02: Detection Gap Story</h3>
+              <video controls preload="metadata" playsinline muted loop poster="assets/graphics/cyber-anime-engineer.svg" data-reel-video>
+                <source src="assets/videos/blog/reel-detection-gap.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="btn secondary" data-reel-toggle>Play reel</button>
             </article>
-            <article class="card blog-media-card reveal">
-              <img src="assets/graphics/risk-signal-map.svg" alt="Risk signal infographic" loading="lazy" />
-              <h3>Infographic Evidence</h3>
-              <p>Convert complex risk patterns into visuals that are easy to explain and share.</p>
+            <article class="card reel-card reel-three reveal" data-reel>
+              <h3>Reel 03: Remediation Sprint</h3>
+              <video controls preload="metadata" playsinline muted loop poster="assets/graphics/cyber-anime-ops.svg" data-reel-video>
+                <source src="assets/videos/blog/reel-remediation-sprint.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="btn secondary" data-reel-toggle>Play reel</button>
             </article>
           </div>
         </div>
@@ -107,43 +104,11 @@
 
       <section class="section alt tone-violet" data-track-section="blog_infographics">
         <div class="container">
-          <header class="section-head reveal">
-            <h2>Infographic lane for high-retention posts.</h2>
-            <p>Add one infographic in every major post to increase readability and shareability.</p>
-          </header>
+          <header class="section-head reveal"><h2>Infographic lane</h2><p>All long-form posts include infographic context and visual models.</p></header>
           <div class="grid three">
-            <article class="card infographic-card reveal"><img src="assets/graphics/assurance-flywheel.svg" alt="Assurance flywheel diagram" loading="lazy" /><h3>Assurance Flywheel</h3><p>Explains continuous validation from finding to closure.</p></article>
-            <article class="card infographic-card reveal"><img src="assets/graphics/compliance-lattice.svg" alt="Compliance lattice map" loading="lazy" /><h3>Compliance Lattice</h3><p>Maps controls to standards and business accountability.</p></article>
-            <article class="card infographic-card reveal"><img src="assets/graphics/risk-signal-map.svg" alt="Risk signal map" loading="lazy" /><h3>Risk Signal Map</h3><p>Highlights pressure zones across cloud, IAM, and API layers.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section tone-amber" data-track-section="blog_reels">
-        <div class="container">
-          <header class="section-head reveal">
-            <h2>Animated explainer reels (owned, on-brand, no external embeds).</h2>
-            <p>Each reel card below has a unique motion pattern to avoid repetitive visuals across sections.</p>
-          </header>
-          <div class="grid three">
-            <article class="card reel-card reel-one reveal" data-reel>
-              <h3>Reel 01: Breach Path Walkthrough</h3>
-              <p>Timeline animation for initial access to privilege escalation.</p>
-              <div class="reel-track"><span></span></div>
-              <button type="button" class="btn secondary" data-reel-toggle>Play reel</button>
-            </article>
-            <article class="card reel-card reel-two reveal" data-reel>
-              <h3>Reel 02: Detection Gap Story</h3>
-              <p>Pulse-map animation showing alert latency and control blind spots.</p>
-              <div class="reel-track"><span></span></div>
-              <button type="button" class="btn secondary" data-reel-toggle>Play reel</button>
-            </article>
-            <article class="card reel-card reel-three reveal" data-reel>
-              <h3>Reel 03: Remediation Sprint</h3>
-              <p>Motion sequence from finding ownership to retest closure evidence.</p>
-              <div class="reel-track"><span></span></div>
-              <button type="button" class="btn secondary" data-reel-toggle>Play reel</button>
-            </article>
+            <article class="card infographic-card reveal"><img src="assets/graphics/assurance-flywheel.svg" alt="Assurance flywheel" loading="lazy" /><h3>Assurance Flywheel</h3><p>From scoping to verified closure.</p></article>
+            <article class="card infographic-card reveal"><img src="assets/graphics/compliance-lattice.svg" alt="Compliance lattice" loading="lazy" /><h3>Compliance Lattice</h3><p>Control mapping for legal, risk, and audit teams.</p></article>
+            <article class="card infographic-card reveal"><img src="assets/graphics/risk-signal-map.svg" alt="Risk signal map" loading="lazy" /><h3>Risk Signal Map</h3><p>Operational hotspots visualized for faster decision cycles.</p></article>
           </div>
         </div>
       </section>
@@ -159,15 +124,8 @@
 
       <section class="section alt tone-emerald" data-track-section="blog_index_results">
         <div class="container">
-          <header class="section-head reveal"><h2>Latest Articles</h2><p>Fresh content to support buying committees, security teams, and board-level conversations.</p></header>
+          <header class="section-head reveal"><h2>Latest Articles</h2><p>Each article is expanded for deep-read quality with visuals, video, and execution checklists.</p></header>
           <div class="grid three" data-blog-index></div>
-        </div>
-      </section>
-
-      <section class="section tone-indigo" data-track-section="blog_index_cta">
-        <div class="container resource-bar panel reveal">
-          <div><p class="kicker">Publish-ready setup</p><h2>Your blog operations workflow is live.</h2><p class="lead">Create a new post, enrich with your media, publish to blog + insights, and deploy automatically.</p></div>
-          <div class="resource-actions"><a class="btn primary" href="content-studio.html">Open content studio</a><a class="btn secondary" href="docs/BLOG-PUBLISHING-PLAYBOOK.md">Open publishing playbook</a><a class="btn ghost" href="booking.html">Book strategy call</a></div>
         </div>
       </section>
     </main>

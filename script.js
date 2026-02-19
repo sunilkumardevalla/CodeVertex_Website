@@ -2427,9 +2427,29 @@ const initBlogMediaExperience = () => {
     button.addEventListener("click", () => {
       const card = button.closest("[data-reel]");
       if (!card) return;
-      const playing = card.classList.toggle("is-playing");
-      button.textContent = playing ? "Pause reel" : "Play reel";
-      trackEvent("blog_reel_toggle", { state: playing ? "play" : "pause" });
+      const video = card.querySelector("[data-reel-video]");
+      if (!video) return;
+
+      const isNowPlaying = video.paused;
+      document.querySelectorAll("[data-reel-video]").forEach((v) => {
+        if (v !== video) v.pause();
+      });
+      document.querySelectorAll("[data-reel]").forEach((c) => c.classList.remove("is-playing"));
+      document.querySelectorAll("[data-reel-toggle]").forEach((b) => {
+        if (b !== button) b.textContent = "Play reel";
+      });
+
+      if (isNowPlaying) {
+        video.play().catch(() => {});
+        card.classList.add("is-playing");
+        button.textContent = "Pause reel";
+        trackEvent("blog_reel_toggle", { state: "play" });
+      } else {
+        video.pause();
+        card.classList.remove("is-playing");
+        button.textContent = "Play reel";
+        trackEvent("blog_reel_toggle", { state: "pause" });
+      }
     });
   });
 };
