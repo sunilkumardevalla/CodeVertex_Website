@@ -1,0 +1,31 @@
+name: Monthly CRM Health Check
+
+on:
+  schedule:
+    - cron: "0 9 1 * *"
+  workflow_dispatch:
+
+jobs:
+  crm-health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Run monthly CRM health check
+        env:
+          CV_BASE_URL: https://codevertex-website.netlify.app
+          CV_REQUIRE_HUBSPOT_VERIFY: ${{ secrets.HUBSPOT_PRIVATE_APP_TOKEN != '' }}
+          HUBSPOT_PRIVATE_APP_TOKEN: ${{ secrets.HUBSPOT_PRIVATE_APP_TOKEN }}
+        run: bash scripts/monthly-crm-health-check.sh
+
+      - name: Upload CRM health report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monthly-crm-health-report
+          path: reports/*.md
+          if-no-files-found: ignore

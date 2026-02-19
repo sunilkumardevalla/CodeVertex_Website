@@ -7,3 +7,9 @@ dist/
 !.env.example
 coverage/
 *.log
+
+# Local Netlify folder
+.netlify
+
+# Local health-check artifacts
+reports/
