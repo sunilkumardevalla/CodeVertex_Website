@@ -6721,3 +6721,91 @@ figcaption {
     font-size: 0.72rem;
   }
 }
+
+/* Global text-flow polish: blog/faq/question-answer alignment */
+.accordion-item button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px;
+  line-height: 1.35;
+}
+
+.accordion-item button span {
+  display: block;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.accordion-item button::after {
+  align-self: start;
+  margin-top: 1px;
+}
+
+.accordion-item > div {
+  padding-top: 0;
+}
+
+.accordion-item > div p,
+.faq-card p,
+.blog-media-card p,
+.infographic-card p,
+.reel-card p,
+.incident-card p,
+.card p,
+.panel p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.faq-card,
+.blog-media-card,
+.infographic-card,
+.reel-card,
+.incident-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: start;
+  gap: 8px;
+}
+
+.faq-card h3,
+.blog-media-card h3,
+.infographic-card h3,
+.reel-card h3,
+.incident-card h3,
+.accordion-item h3,
+.accordion-item button {
+  margin: 0;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.section[data-track-section^="blog_"] article.panel h2,
+.section[data-track-section^="blog_"] article.panel h3,
+.section[data-track-section^="incident_"] article.panel h2,
+.section[data-track-section^="incident_"] article.panel h3 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+  .accordion-item button {
+    gap: 8px;
+    padding: 13px;
+  }
+
+  .faq-card,
+  .blog-media-card,
+  .infographic-card,
+  .reel-card,
+  .incident-card {
+    gap: 7px;
+  }
+}
