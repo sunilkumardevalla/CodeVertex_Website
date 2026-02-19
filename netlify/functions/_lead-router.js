@@ -73,6 +73,84 @@ const signPayload = (body, secret) => {
   return crypto.createHmac('sha256', secret).update(body).digest('hex');
 };
 
+const splitName = (fullName) => {
+  const clean = String(fullName || '').trim();
+  if (!clean) return { first: '', last: '' };
+  const parts = clean.split(/\s+/).filter(Boolean);
+  if (parts.length === 1) return { first: parts[0], last: '' };
+  return { first: parts[0], last: parts.slice(1).join(' ') };
+};
+
+const mapHubspotLeadStatus = (priority) => {
+  const p = String(priority || '').toLowerCase();
+  if (p === 'high' || p === 'enterprise') {
+    return process.env.CV_HUBSPOT_HIGH_PRIORITY_LEAD_STATUS || 'OPEN';
+  }
+  if (p === 'nurture') {
+    return process.env.CV_HUBSPOT_NURTURE_LEAD_STATUS || 'IN_PROGRESS';
+  }
+  return process.env.CV_HUBSPOT_DEFAULT_LEAD_STATUS || 'NEW';
+};
+
+const buildHubspotProperties = (envelope) => {
+  const raw = envelope?.payload?.payload || {};
+  const fullName = envelope?.payload?.name || raw.name || '';
+  const { first, last } = splitName(fullName);
+  const props = {
+    email: envelope?.payload?.email || raw.email || '',
+    firstname: first,
+    lastname: last,
+    company: envelope?.payload?.company || raw.company || '',
+    jobtitle: raw.role || '',
+    phone: raw.phone || '',
+    website: raw.reference_link || '',
+    lifecyclestage: process.env.CV_HUBSPOT_LIFECYCLE_STAGE || 'lead',
+    hs_lead_status: mapHubspotLeadStatus(envelope?.priority || envelope?.payload?.lead_priority)
+  };
+
+  const cleaned = {};
+  Object.entries(props).forEach(([key, value]) => {
+    const normalized = String(value || '').trim();
+    if (normalized) cleaned[key] = normalized;
+  });
+  return cleaned;
+};
+
+const deliverHubspotContact = async (envelope) => {
+  const token = String(process.env.CV_HUBSPOT_PRIVATE_APP_TOKEN || '').trim();
+  if (!token) {
+    return { delivered: false, provider: 'hubspot', status: 0, error: 'missing_hubspot_token' };
+  }
+
+  const apiBase = normalizeUrl(process.env.CV_HUBSPOT_API_BASE || 'https://api.hubapi.com');
+  const endpoint = `${apiBase.replace(/\/$/, '')}/crm/v3/objects/contacts`;
+  const timeoutMs = Math.max(2000, Number(process.env.CV_HUBSPOT_TIMEOUT_MS || 7000));
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const body = JSON.stringify({ properties: buildHubspotProperties(envelope) });
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'content-type': 'application/json'
+      },
+      body,
+      signal: controller.signal
+    });
+    const text = await res.text().catch(() => '');
+    if (res.ok || res.status === 409) {
+      return { delivered: true, provider: 'hubspot', status: res.status, body: text.slice(0, 500) };
+    }
+    return { delivered: false, provider: 'hubspot', status: res.status, body: text.slice(0, 500) };
+  } catch (err) {
+    return { delivered: false, provider: 'hubspot', status: 0, error: String(err && err.message ? err.message : err) };
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
 const postJson = async (url, payload, timeoutMs = 7000) => {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -149,6 +227,23 @@ const routeLead = async ({ channel, payload, leadId, sourceIp }) => {
     received_at: new Date().toISOString(),
     payload
   };
+
+  const crmProvider = String(process.env.CV_CRM_PROVIDER || 'webhook').toLowerCase();
+  if (channel === 'crm' && crmProvider === 'hubspot') {
+    const hubspotDelivery = await deliverHubspotContact(envelope);
+    if (hubspotDelivery.delivered) {
+      console.log('[cv-router][hubspot-delivered]', JSON.stringify({ routing_id: routingId, status: hubspotDelivery.status }));
+      return {
+        routed: true,
+        routing_id: routingId,
+        priority,
+        destination: 'hubspot:contacts-api',
+        dead_letter: null,
+        attempts: [hubspotDelivery]
+      };
+    }
+    console.error('[cv-router][hubspot-failed]', JSON.stringify({ routing_id: routingId, ...hubspotDelivery }));
+  }
 
   if (!destinations.length) {
     const dlq = await deadLetter(envelope, [{ reason: 'no_destination_configured' }]);

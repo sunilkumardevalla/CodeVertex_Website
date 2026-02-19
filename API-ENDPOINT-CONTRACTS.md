@@ -15,6 +15,10 @@ Date: February 19, 2026
 Purpose:
 - Receive high-intent commercial leads from booking, checkout, and contact forms.
 
+Provider modes:
+- `CV_CRM_PROVIDER=hubspot` (recommended): sends lead directly to HubSpot Contacts API.
+- `CV_CRM_PROVIDER=webhook`: sends lead to configured CRM webhook destinations.
+
 Minimum fields expected:
 - `name`, `email`, `company` (or `org`), `lead_source`
 
@@ -24,10 +28,11 @@ Recommended fields:
 - UTM fields, `landing_page`, `referrer`
 
 Response contract:
-- `202`: `{ ok: true, lead_id, route: "crm" }`
+- `202`: `{ ok: true, lead_id, route: "crm", routing_id, routed, priority }`
 - `400`: `{ error: "invalid_email" | "invalid_payload" }`
 - `401`: `{ error: "invalid_signature" }`
 - `429`: `{ error: "rate_limited" }`
+- `502`: `{ error: "downstream_delivery_failed" }` when `CV_FAIL_ON_ROUTING_ERROR=true`
 
 ## 2) `/api/marketing-intake`
 Purpose:
@@ -38,7 +43,7 @@ Common fields:
 - attribution fields (UTMs + referrer + landing page)
 
 Response contract:
-- `202`: `{ ok: true, subscriber_id, route: "marketing" }`
+- `202`: `{ ok: true, subscriber_id, route: "marketing", routing_id, routed, priority }`
 - `400`: `{ error: "invalid_email" | "invalid_payload" }`
 - `401`: `{ error: "invalid_signature" }`
 - `429`: `{ error: "rate_limited" }`
@@ -63,10 +68,10 @@ Response contract:
 - Alert on sustained 4xx/5xx rates and signature failures.
 - Maintain idempotency in downstream CRM/marketing ingestion.
 - Rotate `CV_WEBHOOK_SIGNING_SECRET` on a fixed schedule.
-
+- Rotate HubSpot private app token every 90 days.
 
 ## 5) Routing and Retry Behavior
-- CRM and marketing endpoints now use a shared routing engine.
+- CRM and marketing endpoints use a shared routing engine.
 - Delivery supports:
   - priority-based destination selection
   - retry with backoff

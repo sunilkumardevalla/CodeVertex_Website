@@ -24,18 +24,13 @@ Enterprise cybersecurity marketing and revenue website for CodeVertex.
 - `crm-webhook-test.html`
 - `crm-webhook-mapping.html`
 
-## Data and Templates
-- `assets/data/insights-library.json`
-- `assets/data/revenue-dashboard.json`
-- `workspace/`
-- `templates/`
-
-## API and Deployment
+## API and CRM
 - `netlify/functions/`
 - `netlify.toml`
 - `.env.example`
 - `API-ENDPOINT-CONTRACTS.md`
 - `docs/DEPLOYMENT-ENVIRONMENT.md`
+- `docs/HUBSPOT-SETUP.md`
 
 ## Governance and Release
 - `CONTRIBUTING.md`
@@ -49,8 +44,12 @@ Run all checks from project root:
 - `bash scripts/quality-check.sh`
 - `bash scripts/prelaunch-check.sh`
 - `bash scripts/monetization-check.sh`
+- `bash scripts/security-check.sh`
+- `bash scripts/production-config-check.sh`
 
 ## CI Workflows
 - `.github/workflows/site-quality.yml`
 - `.github/workflows/prelaunch-audit.yml`
 - `.github/workflows/lighthouse-production.yml`
+- `.github/workflows/security-baseline.yml`
+- `.github/workflows/production-readiness.yml`

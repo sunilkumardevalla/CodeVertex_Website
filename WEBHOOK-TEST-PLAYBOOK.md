@@ -1,4 +1,4 @@
-# Webhook Test Playbook
+# CRM and Webhook Test Playbook
 
 Date: February 19, 2026
 
@@ -15,7 +15,7 @@ Validate presets:
 Expected:
 - HTTP 2xx response
 - Payload includes lead routing fields
-- CRM records route to expected pipeline owner/tier
+- Routing response includes `routing_id`
 
 ## 2) Form Path Tests
 Run submit tests on:
@@ -31,12 +31,24 @@ Validate:
 - UTM fields attached
 - `lead_source` value present
 
-## 3) Attribution Tests
+## 3) HubSpot Direct Delivery Tests
+Precondition:
+- `CV_CRM_PROVIDER=hubspot`
+- valid `CV_HUBSPOT_PRIVATE_APP_TOKEN`
+
+Run:
+1. Submit lead from `contact.html`.
+2. Confirm `/api/crm-intake` returns `202` with `routed=true`.
+3. Verify record appears in HubSpot contacts.
+4. Repeat with `booking.html`.
+
+## 4) Attribution Tests
 Open page with query string, example:
 - `?utm_source=linkedin&utm_medium=paid&utm_campaign=q2-abm`
 Submit form and verify fields in payload.
 
-## 4) Failure Tests
-- Temporarily point webhook URL to invalid endpoint.
-- Confirm UI shows failure message and does not silently pass.
-- Restore endpoint and re-validate success.
+## 5) Failure Tests
+- Temporarily set invalid `CV_HUBSPOT_PRIVATE_APP_TOKEN`.
+- Confirm router logs show provider failure.
+- Confirm fallback webhook route works if configured.
+- Restore token and revalidate success.
