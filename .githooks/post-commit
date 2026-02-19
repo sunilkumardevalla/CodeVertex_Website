@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+# Auto-push every new commit to the current branch on origin.
+# Disable temporarily with:
+#   git config --local hooks.autopush.enabled false
+if [ "$(git config --local --get hooks.autopush.enabled || echo true)" = "false" ]; then
+  exit 0
+fi
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+[ "$branch" = "HEAD" ] && exit 0
+
+remote="$(git config --local --get hooks.autopush.remote || echo origin)"
+
+git push "$remote" "$branch"
