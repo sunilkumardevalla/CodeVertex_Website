@@ -6809,3 +6809,28 @@ figcaption {
     gap: 7px;
   }
 }
+
+/* Scoped fix: assurance flywheel figure spacing in blog scope article */
+body[data-blog-slug="scope-pentest-2026"] .assurance-flywheel-figure {
+  display: grid;
+  gap: 12px;
+  align-items: start;
+  width: min(840px, 100%);
+  margin: 18px auto;
+}
+
+body[data-blog-slug="scope-pentest-2026"] .assurance-flywheel-figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: auto;
+  max-height: none;
+  object-fit: contain;
+  padding: 10px;
+}
+
+body[data-blog-slug="scope-pentest-2026"] .assurance-flywheel-figure figcaption {
+  margin: 0;
+  padding: 0 4px;
+  line-height: 1.5;
+  font-size: 0.84rem;
+}

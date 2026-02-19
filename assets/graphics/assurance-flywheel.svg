@@ -1,52 +1,52 @@
-<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="1200" height="820" viewBox="0 0 1200 820" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Assurance Flywheel</title>
   <desc id="desc">A circular diagram representing scope, test, report and closure cycle.</desc>
   <defs>
-    <linearGradient id="bg2" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg2" x1="0" y1="0" x2="1200" y2="820" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F2F8FF"/>
       <stop offset="1" stop-color="#E4EDFF"/>
     </linearGradient>
-    <linearGradient id="ring" x1="300" y1="100" x2="900" y2="660" gradientUnits="userSpaceOnUse">
+    <linearGradient id="ring" x1="300" y1="140" x2="900" y2="700" gradientUnits="userSpaceOnUse">
       <stop stop-color="#0D7BE8"/>
       <stop offset="1" stop-color="#0DC6A2"/>
     </linearGradient>
   </defs>
 
-  <rect width="1200" height="760" rx="28" fill="url(#bg2)"/>
-  <circle cx="600" cy="380" r="250" stroke="url(#ring)" stroke-width="56"/>
-  <circle cx="600" cy="380" r="158" fill="#FFFFFF"/>
+  <rect width="1200" height="820" rx="28" fill="url(#bg2)"/>
+  <circle cx="600" cy="410" r="250" stroke="url(#ring)" stroke-width="56"/>
+  <circle cx="600" cy="410" r="158" fill="#FFFFFF"/>
 
   <g fill="#10335F" font-family="Arial, sans-serif">
-    <text x="536" y="385" font-size="34" font-weight="700">ASSURE</text>
-    <text x="536" y="425" font-size="34" font-weight="700">CYCLE</text>
+    <text x="536" y="414" font-size="34" font-weight="700">ASSURE</text>
+    <text x="536" y="454" font-size="34" font-weight="700">CYCLE</text>
   </g>
 
   <g font-family="Arial, sans-serif" fill="#10335F" font-size="28" font-weight="700">
-    <text x="555" y="118">Scope</text>
-    <text x="885" y="390">Test</text>
-    <text x="555" y="688">Report</text>
-    <text x="190" y="390">Retest</text>
+    <text x="556" y="146">Scope</text>
+    <text x="892" y="422">Test</text>
+    <text x="552" y="772">Report</text>
+    <text x="174" y="422">Retest</text>
   </g>
 
   <g fill="#1A4D84" font-family="Arial, sans-serif" font-size="20" font-weight="600">
-    <text x="600" y="72" text-anchor="middle">
+    <text x="600" y="54" text-anchor="middle">
       <tspan x="600" dy="0">Risk alignment and legal</tspan>
       <tspan x="600" dy="24">authorization</tspan>
     </text>
 
-    <text x="964" y="350" text-anchor="start">
-      <tspan x="964" dy="0">Manual exploitability</tspan>
-      <tspan x="964" dy="24">validation</tspan>
+    <text x="1000" y="382" text-anchor="start">
+      <tspan x="1000" dy="0">Manual exploitability</tspan>
+      <tspan x="1000" dy="24">validation</tspan>
     </text>
 
-    <text x="600" y="724" text-anchor="middle">
+    <text x="600" y="792" text-anchor="middle">
       <tspan x="600" dy="0">Executive narrative +</tspan>
       <tspan x="600" dy="24">technical detail</tspan>
     </text>
 
-    <text x="34" y="350" text-anchor="start">
-      <tspan x="34" dy="0">Closure proof and</tspan>
-      <tspan x="34" dy="24">business sign-off</tspan>
+    <text x="22" y="382" text-anchor="start">
+      <tspan x="22" dy="0">Closure proof and</tspan>
+      <tspan x="22" dy="24">business sign-off</tspan>
     </text>
   </g>
 </svg>
