@@ -10,8 +10,5 @@ http://www.codevertex.io/* https://codevertex.io/:splat 301!
 /blog/tag/executive-strategy /blog.html?category=Executive%20Strategy 301
 /blog/tag/cloud-security /blog.html?category=Cloud%20Security 301
 
-# API function routes (force rewrite)
-/api/* /.netlify/functions/:splat 200!
-
 # SPA-style fallback to 404 page
 /* /404.html 404

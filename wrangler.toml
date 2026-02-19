@@ -1,0 +1,6 @@
+name = "codevertex-website"
+compatibility_date = "2026-02-19"
+pages_build_output_dir = "."
+
+[vars]
+CV_ALLOWED_ORIGINS = "https://codevertex.io,https://www.codevertex.io,http://localhost:8788,http://localhost:3000"

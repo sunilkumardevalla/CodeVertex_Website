@@ -1592,8 +1592,8 @@ document.querySelectorAll("form[data-async-form='true']").forEach((form) => {
       const customWebhook = form.getAttribute("data-webhook-url") || "";
       const webhook = customWebhook || (
         target === "marketing"
-          ? (window.CV_MARKETING_WEBHOOK || document.querySelector("meta[name='cv-marketing-webhook']")?.content || "")
-          : (window.CV_CRM_WEBHOOK || document.querySelector("meta[name='cv-crm-webhook']")?.content || "")
+          ? (window.CV_MARKETING_WEBHOOK || document.querySelector("meta[name='cv-marketing-webhook']")?.content || "/api/marketing-intake")
+          : (window.CV_CRM_WEBHOOK || document.querySelector("meta[name='cv-crm-webhook']")?.content || "/api/crm-intake")
       );
 
       const submitEndpoint = form.getAttribute("data-submit-endpoint") || (form.hasAttribute("data-netlify") ? "/" : "");
@@ -2212,7 +2212,7 @@ const injectChatWidget = () => {
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const webhook = window.CV_MARKETING_WEBHOOK || document.querySelector("meta[name='cv-marketing-webhook']")?.content || "";
+      const webhook = window.CV_MARKETING_WEBHOOK || document.querySelector("meta[name='cv-marketing-webhook']")?.content || "/api/marketing-intake";
       const payload = Object.fromEntries(new FormData(form).entries());
       payload.lead_source = "website-chat-widget";
       payload.page = window.location.pathname;

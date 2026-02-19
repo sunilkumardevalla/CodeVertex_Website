@@ -41,10 +41,13 @@ Enterprise cybersecurity marketing and revenue website for CodeVertex.
 - Draft script: `scripts/incident-pack-new.sh`
 - Publish script: `scripts/incident-pack-publish.sh`
 
-
 ## API and CRM
-- `netlify/functions/`
-- `netlify.toml`
+- `functions/api/` (Cloudflare Pages Functions)
+- `functions/_shared/`
+- `wrangler.toml`
+- `CLOUDFLARE-PAGES-SETUP.md`
+- `netlify/functions/` (legacy fallback)
+- `netlify.toml` (legacy fallback)
 - `.env.example`
 - `API-ENDPOINT-CONTRACTS.md`
 - `docs/DEPLOYMENT-ENVIRONMENT.md`
