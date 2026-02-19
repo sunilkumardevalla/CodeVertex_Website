@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Animated cyber engineer character">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1b1238"/><stop offset="50%" stop-color="#0d6ed1"/><stop offset="100%" stop-color="#1de9b6"/></linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7bd8ff"/><stop offset="100%" stop-color="#5ef2d4"/></linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g1)"/>
+  <g opacity=".28" fill="#b7e7ff">
+    <circle cx="120" cy="120" r="10"><animate attributeName="r" values="8;12;8" dur="3s" repeatCount="indefinite"/></circle>
+    <circle cx="1080" cy="140" r="8"><animate attributeName="r" values="8;14;8" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="620" r="9"><animate attributeName="r" values="9;15;9" dur="2.6s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(510 120)">
+    <ellipse cx="100" cy="110" rx="66" ry="76" fill="#ffd5b7"/>
+    <path d="M37 97q35-89 130-20q-9-95-82-82q-54 22-48 102z" fill="#15317f"/>
+    <rect x="58" y="102" width="34" height="8" rx="4" fill="#0b2447"/>
+    <rect x="106" y="102" width="34" height="8" rx="4" fill="#0b2447"/>
+    <path d="M72 147q29 20 57 0" stroke="#ab5f5f" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <rect x="0" y="188" width="208" height="268" rx="24" fill="#071c3a"/>
+    <rect x="20" y="222" width="168" height="184" rx="14" fill="#0b2f58"/>
+    <g fill="url(#g2)">
+      <rect x="34" y="244" width="140" height="10" rx="5"><animate attributeName="width" values="96;140;78;140;96" dur="3s" repeatCount="indefinite"/></rect>
+      <rect x="34" y="268" width="90" height="10" rx="5"><animate attributeName="x" values="34;64;34" dur="2.6s" repeatCount="indefinite"/></rect>
+      <rect x="34" y="292" width="126" height="10" rx="5"><animate attributeName="opacity" values="1;.35;1" dur="2s" repeatCount="indefinite"/></rect>
+      <rect x="34" y="316" width="110" height="10" rx="5"><animate attributeName="width" values="60;110;72;110;60" dur="3.2s" repeatCount="indefinite"/></rect>
+    </g>
+  </g>
+  <g stroke="#7cc9ff" stroke-width="3" fill="none" opacity=".45">
+    <path d="M160 420c110-70 210-70 320 0s210 70 320 0s210-70 320 0"><animate attributeName="d" dur="6s" repeatCount="indefinite" values="M160 420c110-70 210-70 320 0s210 70 320 0s210-70 320 0;M160 430c120-55 210-55 320 0s220 55 320 0s210-55 320 0;M160 420c110-70 210-70 320 0s210 70 320 0s210-70 320 0"/></path>
+  </g>
+</svg>

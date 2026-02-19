@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Animated cyber operations character">
+  <defs>
+    <linearGradient id="opsbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#060f24"/><stop offset="50%" stop-color="#153a86"/><stop offset="100%" stop-color="#0ea5a5"/></linearGradient>
+    <radialGradient id="pulse" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9af8ff" stop-opacity=".8"/><stop offset="100%" stop-color="#9af8ff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#opsbg)"/>
+  <g transform="translate(350 120)">
+    <ellipse cx="250" cy="190" rx="170" ry="170" fill="url(#pulse)">
+      <animate attributeName="rx" values="150;185;150" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="150;185;150" dur="3.5s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+  <g transform="translate(495 120)">
+    <ellipse cx="100" cy="120" rx="64" ry="78" fill="#ffd6b9"/>
+    <path d="M32 103q45-98 136-12q-22-96-84-86q-55 14-52 98z" fill="#1d3fa2"/>
+    <circle cx="76" cy="120" r="7" fill="#111827"/><circle cx="122" cy="120" r="7" fill="#111827"/>
+    <path d="M75 156q24 16 48 0" stroke="#b35f5f" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <rect x="0" y="204" width="200" height="250" rx="22" fill="#081b3a"/>
+    <g transform="translate(18 232)">
+      <rect width="164" height="104" rx="12" fill="#0d315e"/>
+      <path d="M16 22h132M16 44h102M16 66h118" stroke="#8be8ff" stroke-width="6" stroke-linecap="round" opacity=".85">
+        <animate attributeName="opacity" values=".2;1;.2" dur="2.4s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  <g transform="translate(130 580)">
+    <rect width="940" height="132" rx="14" fill="#041428" opacity=".78"/>
+    <text x="34" y="54" fill="#bde7ff" font-family="Sora, sans-serif" font-size="30">Blue Team Operations</text>
+    <text x="34" y="96" fill="#e0f2ff" font-family="IBM Plex Sans, sans-serif" font-size="23">Continuous monitoring, triage, and coordinated remediation updates</text>
+  </g>
+</svg>
