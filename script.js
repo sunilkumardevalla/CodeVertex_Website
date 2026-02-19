@@ -2234,12 +2234,17 @@ if (document.querySelector("[data-status-components]")) {
 setTheme(localStorage.getItem("themeMode") || "light");
 setLang(queryLang === "en" || queryLang === "es" ? queryLang : (localStorage.getItem("langMode") || "auto"));
 
-const renderBlogIndex = (posts, rootEl, activeCategory = "all", query = "") => {
+const renderBlogIndex = (posts, rootEl, activeCategory = "all", query = "", activeTag = "") => {
   if (!rootEl) return;
   const normalizedQuery = String(query || "").trim().toLowerCase();
+  const normalizedTag = String(activeTag || "").trim().toLowerCase();
   const filtered = posts.filter((post) => {
     const categoryOk = activeCategory === "all" || post.category === activeCategory;
     if (!categoryOk) return false;
+    if (normalizedTag) {
+      const tagOk = (post.tags || []).some((tag) => String(tag).toLowerCase() === normalizedTag);
+      if (!tagOk) return false;
+    }
     if (!normalizedQuery) return true;
     const haystack = [post.title, post.excerpt, post.category, ...(post.tags || [])].join(" ").toLowerCase();
     return haystack.includes(normalizedQuery);
@@ -2314,10 +2319,18 @@ if (blogIndexRoot || relatedPostsRoot) {
           }).join("");
         }
 
+        const urlParams = new URLSearchParams(window.location.search);
+        const presetCategory = urlParams.get("category") || "all";
+        const presetQuery = urlParams.get("q") || "";
+        const presetTag = urlParams.get("tag") || "";
+
+        if (filterEl && [...filterEl.options].some((opt) => opt.value === presetCategory)) filterEl.value = presetCategory;
+        if (searchEl && presetQuery) searchEl.value = presetQuery;
+
         const runRender = () => {
           const activeCategory = filterEl ? filterEl.value : "all";
           const query = searchEl ? searchEl.value : "";
-          renderBlogIndex(posts, blogIndexRoot, activeCategory, query);
+          renderBlogIndex(posts, blogIndexRoot, activeCategory, query, presetTag);
         };
 
         runRender();

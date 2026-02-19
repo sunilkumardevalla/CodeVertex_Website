@@ -2,6 +2,13 @@
 http://codevertex.io/* https://codevertex.io/:splat 301!
 http://www.codevertex.io/* https://codevertex.io/:splat 301!
 
+# Blog convenience routes
+/blog /blog.html 301
+/blog/tag/penetration-testing /blog.html?category=Penetration%20Testing 301
+/blog/tag/api-security /blog.html?category=API%20Security 301
+/blog/tag/executive-strategy /blog.html?category=Executive%20Strategy 301
+/blog/tag/cloud-security /blog.html?category=Cloud%20Security 301
+
 # API function routes (force rewrite)
 /api/* /.netlify/functions/:splat 200!
 
