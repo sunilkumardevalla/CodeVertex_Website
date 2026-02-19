@@ -18,6 +18,22 @@
       "cta": "View service coverage"
     },
     {
+      "date": "Feb 2026",
+      "read_time": "7 min read",
+      "title": "Assessment Accelerator Framework",
+      "summary": "How to move from initial inquiry to approved security scope in two business days.",
+      "url": "security-assessment.html",
+      "cta": "Open accelerator"
+    },
+    {
+      "date": "Feb 2026",
+      "read_time": "6 min read",
+      "title": "Resource-Led Conversion Strategy",
+      "summary": "How downloadable assets improve qualification and discovery-call conversion rates.",
+      "url": "resource-center.html",
+      "cta": "Open resource center"
+    },
+    {
       "date": "Jan 2026",
       "read_time": "11 min read",
       "title": "Cloud IAM Escalation Chains",
@@ -27,11 +43,27 @@
     },
     {
       "date": "Jan 2026",
+      "read_time": "10 min read",
+      "title": "CISO Metrics for Revenue and Risk",
+      "summary": "Operational metrics that link cyber posture to business outcomes and pipeline velocity.",
+      "url": "revenue-dashboard.html",
+      "cta": "View dashboard"
+    },
+    {
+      "date": "Jan 2026",
       "read_time": "7 min read",
       "title": "Pentest Retest Protocol",
       "summary": "How to verify fixes with evidence quality suitable for audit committees.",
       "url": "checklist.html",
       "cta": "Open checklist"
+    },
+    {
+      "date": "Jan 2026",
+      "read_time": "6 min read",
+      "title": "Security Procurement Response Kit",
+      "summary": "How to package trust artifacts for legal, procurement, and security reviews.",
+      "url": "document-center.html",
+      "cta": "Open document center"
     },
     {
       "date": "Dec 2025",
@@ -48,6 +80,22 @@
       "summary": "How to design realistic incident simulation sessions for executive and SOC teams.",
       "url": "services.html",
       "cta": "Explore programs"
+    },
+    {
+      "date": "Dec 2025",
+      "read_time": "9 min read",
+      "title": "Managed Validation Operating Model",
+      "summary": "A structure for continuous testing, ownership, and remediation governance.",
+      "url": "services.html",
+      "cta": "View service model"
+    },
+    {
+      "date": "Dec 2025",
+      "read_time": "7 min read",
+      "title": "Executive Narrative for Security Findings",
+      "summary": "Translate technical findings into budget-ready priorities and action plans.",
+      "url": "security-brief.html",
+      "cta": "Open security brief"
     }
   ]
 }

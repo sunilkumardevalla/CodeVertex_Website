@@ -1966,10 +1966,48 @@ document.addEventListener("click", (e) => {
     trackEvent("download_click", { target: href, label });
     return;
   }
+  if (href && /\.(pdf|txt|docx?|xlsx?|pptx?)(?:$|\?)/i.test(href)) {
+    trackEvent("asset_download_click", { target: href, label });
+    return;
+  }
+  if (href && /^https?:\/\//i.test(href) && !href.includes(window.location.hostname)) {
+    trackEvent("outbound_link_click", { target: href, label });
+  }
   if (actionable.classList.contains("btn") || tag === "button") {
     trackEvent("cta_click", { label, target: href || "" });
   }
 });
+
+const initSectionViewTracking = () => {
+  const sections = [...document.querySelectorAll("[data-track-section]")];
+  if (!sections.length || !("IntersectionObserver" in window)) return;
+
+  const seen = new Set();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const key = entry.target.getAttribute("data-track-section") || "section";
+      if (seen.has(key)) return;
+      seen.add(key);
+      trackEvent("section_view", { section: key });
+    });
+  }, { threshold: 0.45 });
+
+  sections.forEach((section) => observer.observe(section));
+};
+
+const initMediaTracking = () => {
+  const videos = [...document.querySelectorAll("video")];
+  videos.forEach((video, idx) => {
+    const label = video.getAttribute("data-video-label") || video.closest("section")?.getAttribute("data-track-section") || `video_${idx + 1}`;
+    video.addEventListener("play", () => trackEvent("video_play", { label }));
+    video.addEventListener("pause", () => trackEvent("video_pause", { label }));
+    video.addEventListener("ended", () => trackEvent("video_complete", { label }));
+  });
+};
+
+initSectionViewTracking();
+initMediaTracking();
 
 const renderStatusFeed = (feed) => {
   const overall = document.querySelector("[data-status-overall]");
