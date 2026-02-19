@@ -2459,34 +2459,65 @@ const initBlogMediaExperience = () => {
 
 initBlogMediaExperience();
 
-const renderIncidentFeed = (items, rootEl) => {
+const renderIncidentFeed = (items, rootEl, audience = "all") => {
   if (!rootEl) return;
   if (!Array.isArray(items) || !items.length) {
     rootEl.innerHTML = `<article class="card reveal"><h3>Incident briefings unavailable</h3><p>Unable to load incident updates right now.</p><a class="inline-link" href="contact.html">Contact our team</a></article>`;
     return;
   }
 
-  rootEl.innerHTML = items.map((item) => {
+  const filtered = items.filter((item) => {
+    if (audience === "all") return true;
+    const audiences = Array.isArray(item.audiences) ? item.audiences : [];
+    return audiences.includes(audience);
+  });
+
+  if (!filtered.length) {
+    rootEl.innerHTML = `<article class="card reveal"><h3>No matching briefings</h3><p>Try another audience lane.</p><a class="inline-link" href="incident-watch.html">Reset filters</a></article>`;
+    return;
+  }
+
+  rootEl.innerHTML = filtered.map((item) => {
     const severityClass = String(item.severity || "").toLowerCase();
+    const audiences = Array.isArray(item.audiences) ? item.audiences : [];
+    const adviceMap = item.advice || {};
+    const adviceText = audience === "all"
+      ? (adviceMap.enterprise || adviceMap.smb || adviceMap.individual || "")
+      : (adviceMap[audience] || adviceMap.enterprise || adviceMap.smb || adviceMap.individual || "");
+
     return `
       <article class="card reveal incident-card incident-${severityClass}">
         <p class="kicker">${item.category} · ${item.severity} · ${item.date}</p>
         <h3>${item.title}</h3>
         <p>${item.summary}</p>
-        <p class="incident-advice"><strong>Expert advice:</strong> ${item.expert_advice}</p>
+        <p class="incident-audience-pills">${audiences.map((a) => `<span>${a}</span>`).join("")}</p>
+        <p class="incident-advice"><strong>Expert advice:</strong> ${adviceText}</p>
         <a class="inline-link" href="${item.cta_url}">${item.cta_label}</a>
       </article>
     `;
   }).join("");
 };
-
 const incidentFeedRoot = document.querySelector("[data-incident-feed]");
 if (incidentFeedRoot) {
   fetch("assets/data/incident-watch.json", { cache: "no-store" })
     .then((res) => res.ok ? res.json() : Promise.reject(new Error("incident-feed-failed")))
     .then((data) => {
       const items = Array.isArray(data?.items) ? data.items : [];
-      renderIncidentFeed(items, incidentFeedRoot);
+      let activeAudience = "all";
+
+      const render = () => renderIncidentFeed(items, incidentFeedRoot, activeAudience);
+      render();
+
+      document.querySelectorAll("[data-incident-audience]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeAudience = btn.getAttribute("data-incident-audience") || "all";
+          document.querySelectorAll("[data-incident-audience]").forEach((b) => b.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          render();
+          trackEvent("incident_audience_changed", { audience: activeAudience });
+        });
+      });
+
       trackEvent("incident_feed_loaded", { item_count: String(items.length) });
     })
     .catch(() => {

@@ -8,7 +8,12 @@
       "severity": "Critical",
       "title": "Identity trust-chain abuse in hybrid cloud onboarding flows",
       "summary": "Escalation paths can emerge when federated identity mappings and legacy role assumptions overlap during migrations.",
-      "expert_advice": "Validate transitive trust assumptions, enforce time-bound role grants, and run adversarial chain simulations before cutover.",
+      "audiences": ["enterprise", "smb"],
+      "advice": {
+        "enterprise": "Run transitive trust-chain reviews per business unit and enforce approval controls for cross-account role assumptions.",
+        "smb": "Restrict admin roles, rotate identity keys quarterly, and monitor new federation links for over-privileged defaults.",
+        "individual": "Use unique passwords with MFA for all accounts and avoid reusing recovery channels across services."
+      },
       "cta_label": "Book identity assessment",
       "cta_url": "security-assessment.html"
     },
@@ -18,8 +23,13 @@
       "category": "API Security",
       "severity": "High",
       "title": "Fallback endpoint exposure during release rollback",
-      "summary": "Teams often secure primary API paths but overlook emergency fallback routes and debug interfaces under rollback conditions.",
-      "expert_advice": "Add rollback-path tests to pre-release gates and require policy parity checks for all fallback routes.",
+      "summary": "Teams secure primary API paths but overlook emergency fallback routes and debug interfaces under rollback conditions.",
+      "audiences": ["enterprise", "smb", "individual"],
+      "advice": {
+        "enterprise": "Make rollback-path tests mandatory in release governance and block deploys on fallback auth policy drift.",
+        "smb": "Disable unused debug routes in production and add one automated rollback security test before each release.",
+        "individual": "Avoid connecting personal automation tokens to unknown apps and revoke stale API keys monthly."
+      },
       "cta_label": "Open API checklist",
       "cta_url": "blog-api-security-checklist.html"
     },
@@ -29,8 +39,13 @@
       "category": "Cloud",
       "severity": "High",
       "title": "Runtime token leakage risk in ephemeral workloads",
-      "summary": "Short-lived workloads can still expose metadata-derived credentials when runtime boundary controls are not hardened.",
-      "expert_advice": "Harden metadata access, isolate workload identity contexts, and monitor abnormal token usage bursts.",
+      "summary": "Short-lived workloads can still expose metadata-derived credentials when runtime boundary controls are weak.",
+      "audiences": ["enterprise", "smb"],
+      "advice": {
+        "enterprise": "Isolate workload identity contexts and enforce short token lifetimes with anomaly-based token usage alerts.",
+        "smb": "Turn off legacy metadata endpoints and verify service account permissions are least-privilege.",
+        "individual": "Use app-specific credentials where available and never store cloud keys in plain text files."
+      },
       "cta_label": "Review cloud guidance",
       "cta_url": "blog-cloud-iam-attack-paths.html"
     },
@@ -40,8 +55,13 @@
       "category": "Executive Strategy",
       "severity": "Medium",
       "title": "Board reports overloaded with vulnerability volume and no decision asks",
-      "summary": "Risk committees increasingly request concise business impact scenarios and explicit decision options over technical volume metrics.",
-      "expert_advice": "Use a one-page board brief with risk delta, decision table, and owner-backed accountability metrics.",
+      "summary": "Risk committees request concise impact scenarios and explicit decision options over technical volume metrics.",
+      "audiences": ["enterprise", "smb"],
+      "advice": {
+        "enterprise": "Use a one-page board brief with decision asks, owners, and closure confidence by control domain.",
+        "smb": "Replace long reports with monthly risk summaries and top-three action priorities linked to business impact.",
+        "individual": "Track your top personal security risks and update your protection habits with one change each month."
+      },
       "cta_label": "Use board template",
       "cta_url": "blog-board-cyber-brief.html"
     },
@@ -51,8 +71,13 @@
       "category": "Detection",
       "severity": "Medium",
       "title": "Alert fatigue masking lateral movement indicators",
-      "summary": "High-volume alert streams can hide chained identity and application events that indicate active lateral movement.",
-      "expert_advice": "Correlate identity, API, and cloud events into chain-based detections instead of isolated event scoring.",
+      "summary": "High-volume alerts can hide chained identity and application events that indicate active lateral movement.",
+      "audiences": ["enterprise", "smb", "individual"],
+      "advice": {
+        "enterprise": "Correlate IAM, API, and cloud telemetry into chain detections and measure mean time to escalation.",
+        "smb": "Tune alerts to reduce noise and establish a single on-call triage checklist for suspicious patterns.",
+        "individual": "Enable security alerts on critical accounts and act quickly on unusual login or device notifications."
+      },
       "cta_label": "See response model",
       "cta_url": "services.html"
     },
@@ -63,7 +88,12 @@
       "severity": "Medium",
       "title": "Reopened findings after incomplete fix validation",
       "summary": "Teams close tickets quickly but skip adversarial retest verification, causing recurring exploitable paths.",
-      "expert_advice": "Require closure evidence, retest pass criteria, and monthly reopened-risk reviews with engineering owners.",
+      "audiences": ["enterprise", "smb"],
+      "advice": {
+        "enterprise": "Require closure evidence plus adversarial retest sign-off before changing risk status to resolved.",
+        "smb": "Add a lightweight retest step after fixes and maintain a reopened-issue tracker for 90 days.",
+        "individual": "After fixing device or account settings, recheck them next week to confirm nothing reverted."
+      },
       "cta_label": "Open remediation playbook",
       "cta_url": "resource-center.html"
     }

@@ -72,7 +72,24 @@
             <h2>Live incident brief cards</h2>
             <p>Continuously updated incident-focused insights with practical enterprise response guidance.</p>
           </header>
+          <div class="incident-audience-switch reveal" role="group" aria-label="Audience filter">
+            <button type="button" class="btn secondary is-active" data-incident-audience="all">All Audiences</button>
+            <button type="button" class="btn ghost" data-incident-audience="enterprise">Enterprise</button>
+            <button type="button" class="btn ghost" data-incident-audience="smb">Small Business</button>
+            <button type="button" class="btn ghost" data-incident-audience="individual">Individual</button>
+          </div>
           <div class="grid three" data-incident-feed></div>
+        </div>
+      </section>
+
+      <section class="section alt tone-emerald" data-track-section="incident_audience_guides">
+        <div class="container">
+          <header class="section-head reveal"><h2>Audience guidance lanes</h2><p>Content is structured for multinational enterprises, lean small businesses, and individuals improving personal cyber hygiene.</p></header>
+          <div class="grid three">
+            <article class="card reveal"><h3>Enterprise Lane</h3><p>Governance-ready incident context, risk ownership mapping, compliance-aware controls, and board-grade reporting language.</p><a class="inline-link" href="booking.html">Book enterprise advisory</a></article>
+            <article class="card reveal"><h3>Small Business Lane</h3><p>Low-overhead protection steps, policy simplification, high-value controls, and practical incident readiness without heavy tooling.</p><a class="inline-link" href="resource-center.html">Open SMB resources</a></article>
+            <article class="card reveal"><h3>Individual Lane</h3><p>Personal account security, identity hygiene, scam awareness, and simple defensive habits anyone can apply immediately.</p><a class="inline-link" href="newsletter.html">Subscribe for personal tips</a></article>
+          </div>
         </div>
       </section>
 

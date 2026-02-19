@@ -33,6 +33,15 @@ Enterprise cybersecurity marketing and revenue website for CodeVertex.
 - New post scaffold: `scripts/blog-new.sh`
 - Publish command: `scripts/blog-publish.sh`
 
+## Incident Watch Operations
+- Incident center: `incident-watch.html`
+- Incident feed data: `assets/data/incident-watch.json`
+- Weekly playbook: `docs/WEEKLY-INCIDENT-PACK-PLAYBOOK.md`
+- Draft workspace: `workspace/incident-packs/README.md`
+- Draft script: `scripts/incident-pack-new.sh`
+- Publish script: `scripts/incident-pack-publish.sh`
+
+
 ## API and CRM
 - `netlify/functions/`
 - `netlify.toml`

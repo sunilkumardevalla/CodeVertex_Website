@@ -6375,3 +6375,39 @@ figcaption {
 .incident-hero .hero-actions .btn {
   min-width: 190px;
 }
+
+.incident-audience-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 16px;
+}
+
+.incident-audience-switch .btn {
+  min-height: 40px;
+  padding: 0 14px;
+}
+
+.incident-audience-switch .btn.is-active {
+  background: linear-gradient(120deg, var(--brand), var(--brand-2));
+  color: #fff;
+  border-color: transparent;
+}
+
+.incident-audience-pills {
+  margin: 8px 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.incident-audience-pills span {
+  border: 1px solid color-mix(in srgb, var(--line-strong) 84%, transparent);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-soft);
+  background: color-mix(in srgb, var(--bg-soft) 72%, transparent);
+}

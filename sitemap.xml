@@ -46,4 +46,5 @@
   <url><loc>https://codevertex.io/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://codevertex.io/security-commitment.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://codevertex.io/responsible-disclosure.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://codevertex.io/incident-watch.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
 </urlset>
