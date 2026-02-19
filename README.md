@@ -24,6 +24,15 @@ Enterprise cybersecurity marketing and revenue website for CodeVertex.
 - `crm-webhook-test.html`
 - `crm-webhook-mapping.html`
 
+## Blog Publishing Operations
+- Public blog hub: `/blog` and `blog.html`
+- Post index data: `assets/data/blog-posts.json`
+- Insights feed data: `assets/data/insights-library.json`
+- Draft workspace: `workspace/blog-drafts/README.md`
+- Publishing playbook: `docs/BLOG-PUBLISHING-PLAYBOOK.md`
+- New post scaffold: `scripts/blog-new.sh`
+- Publish command: `scripts/blog-publish.sh`
+
 ## API and CRM
 - `netlify/functions/`
 - `netlify.toml`
