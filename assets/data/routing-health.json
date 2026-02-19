@@ -1,0 +1,51 @@
+{
+  "updated_at": "2026-02-19T19:30:00Z",
+  "kpis": {
+    "delivery_success": "98.7%",
+    "avg_delivery_latency": "620ms",
+    "dead_letter_rate": "0.3%",
+    "high_priority_sla": "99.4%"
+  },
+  "queues": [
+    {
+      "name": "CRM Enterprise Queue",
+      "status": "healthy",
+      "depth": 4,
+      "processing_sla": "< 60s",
+      "note": "Enterprise opportunities are within SLA and reroute fallback is active."
+    },
+    {
+      "name": "CRM Standard Queue",
+      "status": "healthy",
+      "depth": 11,
+      "processing_sla": "< 3m",
+      "note": "Normal intake volume; retries completed within configured attempts."
+    },
+    {
+      "name": "Marketing Urgent Queue",
+      "status": "watch",
+      "depth": 7,
+      "processing_sla": "< 2m",
+      "note": "Unsubscribe requests spiked; monitor webhook ACK latency."
+    }
+  ],
+  "attempt_profile": [
+    { "label": "Delivered on first attempt", "value": "92.1%" },
+    { "label": "Delivered after retry", "value": "6.6%" },
+    { "label": "Dead-letter fallback", "value": "0.3%" }
+  ],
+  "incidents": [
+    {
+      "date": "2026-02-18",
+      "title": "Marketing secondary webhook timeout",
+      "summary": "Primary destination accepted traffic; retry policy prevented message loss.",
+      "status": "resolved"
+    },
+    {
+      "date": "2026-02-17",
+      "title": "No critical routing incidents",
+      "summary": "CRM and marketing channels remained operational across monitored windows.",
+      "status": "operational"
+    }
+  ]
+}

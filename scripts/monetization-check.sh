@@ -16,6 +16,7 @@ required_pages=(
   checkout.html
   partner-program.html
   revenue-dashboard.html
+  routing-health.html
   enterprise-finance-security.html
   unsubscribe.html
   content-studio.html
@@ -28,6 +29,7 @@ done
 required_data=(
   assets/data/insights-library.json
   assets/data/revenue-dashboard.json
+  assets/data/routing-health.json
 )
 
 required_api=(
