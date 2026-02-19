@@ -32,6 +32,19 @@ Enterprise cybersecurity marketing and revenue website for CodeVertex.
 - `docs/DEPLOYMENT-ENVIRONMENT.md`
 - `docs/HUBSPOT-SETUP.md`
 
+## Enterprise Operations Package
+- `docs/enterprise/90-DAY-ENTERPRISE-ROADMAP.md`
+- `docs/enterprise/DOMAIN-DNS-HARDENING.md`
+- `docs/enterprise/OBSERVABILITY-ALERTING.md`
+- `docs/enterprise/ANALYTICS-ATTRIBUTION.md`
+- `docs/enterprise/HUBSPOT-REVOPS-AUTOMATIONS.md`
+- `docs/enterprise/EMAIL-DELIVERABILITY.md`
+- `docs/enterprise/COMPLIANCE-CMP-PLAN.md`
+- `docs/enterprise/CRO-EXPERIMENT-BACKLOG.md`
+- `docs/enterprise/SECURITY-OPERATIONS-CADENCE.md`
+- `docs/enterprise/BCP-DR-PLAYBOOK.md`
+- `docs/enterprise/EXECUTIVE-LAUNCH-BOARD.md`
+
 ## Governance and Release
 - `CONTRIBUTING.md`
 - `docs/RELEASE-MANAGEMENT.md`
@@ -46,6 +59,8 @@ Run all checks from project root:
 - `bash scripts/monetization-check.sh`
 - `bash scripts/security-check.sh`
 - `bash scripts/production-config-check.sh`
+- `bash scripts/monthly-crm-health-check.sh`
+- `bash scripts/enterprise-readiness-check.sh`
 
 ## CI Workflows
 - `.github/workflows/site-quality.yml`
@@ -53,3 +68,5 @@ Run all checks from project root:
 - `.github/workflows/lighthouse-production.yml`
 - `.github/workflows/security-baseline.yml`
 - `.github/workflows/production-readiness.yml`
+- `.github/workflows/monthly-crm-health-check.yml`
+- `.github/workflows/enterprise-readiness.yml`

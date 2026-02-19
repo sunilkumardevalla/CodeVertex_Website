@@ -12,6 +12,7 @@ Last updated: February 19, 2026
   - [ ] `subprocessors.html`
 - [ ] Confirm regional privacy requirements (GDPR/CCPA/other) and publish required clauses.
 - [ ] Confirm cookie policy wording aligns with legal counsel guidance.
+- [ ] Implement CMP evidence retention model in `docs/enterprise/COMPLIANCE-CMP-PLAN.md`.
 
 ## 2. Security and Trust
 - [ ] Replace placeholder key in `pgp-key.txt` with real security team public key.
@@ -19,24 +20,14 @@ Last updated: February 19, 2026
 - [ ] Review `_headers` CSP against final integrations.
 - [ ] Run final security smoke test on public environment (headers, TLS, redirects, CSP).
 - [ ] Perform external penetration test of the website/application surface.
+- [ ] Adopt security cadence in `docs/enterprise/SECURITY-OPERATIONS-CADENCE.md`.
 
 ## 3. Integrations (Required)
-- [ ] Set CRM webhook endpoint in `contact.html` meta tag `cv-crm-webhook`.
-- [ ] Set marketing webhook endpoint in pages using `cv-marketing-webhook`.
-- [ ] Set tracking endpoint in `cv-track-endpoint` meta tags.
-- [ ] Validate form routing and data mapping in CRM:
-  - [ ] `name`
-  - [ ] `email`
-  - [ ] `org`
-  - [ ] `scope`
-  - [ ] `timeline`
-  - [ ] `region`
-  - [ ] `message`
-  - [ ] `lead_source`
-  - [ ] `locale`
+- [ ] Set CRM and marketing integration values in production env.
+- [ ] Validate form routing and data mapping in CRM.
 - [ ] Configure analytics dashboard for tracked events in `script.js`.
-- [ ] Validate revenue dashboard feed in `assets/data/revenue-dashboard.json` or production API.
 - [ ] Validate checkout/partner/newsletter/preferences forms route to correct endpoints.
+- [ ] Enable monthly CRM health workflow and confirm green run.
 
 ## 4. Content and Brand Proof
 - [ ] Replace placeholder leadership bios with approved real profiles.
@@ -58,30 +49,20 @@ Last updated: February 19, 2026
 - [ ] Confirm Open Graph and Twitter cards render correctly.
 
 ## 7. Operations and Monitoring
-- [ ] Connect `status.html` feed process ownership for `status-feed.json` updates.
-- [ ] Define incident update SLA and approval workflow.
 - [ ] Configure uptime monitoring and alert channels.
 - [ ] Configure frontend error monitoring and alert routing.
+- [ ] Implement `docs/enterprise/OBSERVABILITY-ALERTING.md` actions.
+- [ ] Define incident update SLA and approval workflow.
 
 ## 8. CI/CD and Release Controls
-- [ ] Ensure GitHub Actions workflow passes: `.github/workflows/site-quality.yml`.
-- [ ] Run local quality gate before deployment:
-  - `bash scripts/quality-check.sh`
-- [ ] Add branch protection requiring successful quality checks.
+- [ ] Ensure GitHub Actions workflows pass.
+- [ ] Run local quality gates before deployment.
+- [ ] Add branch protection requiring successful checks.
 - [ ] Tag release and archive deployment artifacts.
+- [ ] Enable weekly `Enterprise Readiness` workflow run.
 
 ## 9. Final Launch Verification
-- [ ] Smoke test core journey:
-  - [ ] Homepage -> Services -> Contact form submit
-  - [ ] Homepage -> Booking -> CRM lead creation
-  - [ ] Pricing -> Checkout -> CRM lead creation
-  - [ ] Insights -> Newsletter -> Marketing lead creation
-  - [ ] Partner Program -> Marketing lead creation
-  - [ ] Preferences Center -> marketing update event
-  - [ ] Document downloads
-  - [ ] Theme switch and language switch
-  - [ ] Cookie consent interaction
-  - [ ] Status page feed rendering
+- [ ] Smoke test core journey and key forms.
 - [ ] Confirm no console errors in major browsers.
 - [ ] Confirm HTTPS-only and no mixed-content warnings.
 - [ ] Take final legal/security sign-off snapshot and publish.
@@ -93,19 +74,7 @@ Last updated: February 19, 2026
 - [ ] Weekly content/SEO updates and indexation checks.
 - [ ] Publish first post-launch case-study/insight update.
 
----
-
-## Ownership Matrix (Recommended)
-- Legal: Counsel / Compliance lead
-- Security: Security lead
-- Integrations: Web engineering + RevOps
-- Content: Marketing + Leadership
-- Accessibility: UX + QA
-- Operations: DevOps/SRE
-
-## Go/No-Go Gate
-Proceed to launch only when:
-- [ ] All required checkboxes in sections 1-4 are complete
-- [ ] Quality checks pass
-- [ ] Monetization checks pass: `bash scripts/monetization-check.sh`
-- [ ] Security/legal owners sign off
+## 11. 90-Day Enterprise Execution
+- [ ] Run plan in `docs/enterprise/90-DAY-ENTERPRISE-ROADMAP.md`.
+- [ ] Review weekly against `docs/enterprise/EXECUTIVE-LAUNCH-BOARD.md`.
+- [ ] Track owner accountability per milestone.
