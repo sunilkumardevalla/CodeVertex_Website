@@ -63,3 +63,18 @@ Response contract:
 - Alert on sustained 4xx/5xx rates and signature failures.
 - Maintain idempotency in downstream CRM/marketing ingestion.
 - Rotate `CV_WEBHOOK_SIGNING_SECRET` on a fixed schedule.
+
+
+## 5) Routing and Retry Behavior
+- CRM and marketing endpoints now use a shared routing engine.
+- Delivery supports:
+  - priority-based destination selection
+  - retry with backoff
+  - dead-letter fallback when all destinations fail
+- Response payload includes:
+  - `routing_id`
+  - `routed` boolean
+  - `priority`
+  - `dead_letter` status object when applicable
+- Strict mode:
+  - set `CV_FAIL_ON_ROUTING_ERROR=true` to return `502` on routing failure
