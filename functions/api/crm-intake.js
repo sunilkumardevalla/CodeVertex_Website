@@ -21,6 +21,25 @@ const hashHex = async (value) => {
   return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
 };
 
+const summarizeAttempt = (attempt) => {
+  const destination = String(attempt?.destination || "");
+  let destinationHost = "";
+  if (destination) {
+    try {
+      destinationHost = new URL(destination).host;
+    } catch {
+      destinationHost = "invalid-url";
+    }
+  }
+
+  return {
+    destination_host: destinationHost,
+    status: Number(attempt?.status || 0),
+    ok: Boolean(attempt?.ok),
+    error: String(attempt?.error || "").slice(0, 160)
+  };
+};
+
 export async function onRequest(context) {
   const { request, env } = context;
   const requestId = makeRequestId();
@@ -74,6 +93,8 @@ export async function onRequest(context) {
     return json(502, { error: "downstream_delivery_failed", lead_id: leadId, routing_id: delivery.routing_id, request_id: requestId }, apiHeaders(requestId, origin, env));
   }
 
+  const exposeDebug = String(env.CV_EXPOSE_ROUTING_DEBUG || "false").toLowerCase() === "true";
+
   return json(
     202,
     {
@@ -84,6 +105,13 @@ export async function onRequest(context) {
       routed: delivery.routed,
       priority: delivery.priority,
       dead_letter: delivery.dead_letter,
+      ...(exposeDebug
+        ? {
+            routing_debug: {
+              attempts: Array.isArray(delivery.attempts) ? delivery.attempts.slice(0, 6).map(summarizeAttempt) : []
+            }
+          }
+        : {}),
       request_id: requestId
     },
     apiHeaders(requestId, origin, env)
