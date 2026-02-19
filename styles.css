@@ -6038,3 +6038,8 @@ main iframe {
     width: 100%;
   }
 }
+
+.cv-turnstile {
+  margin-top: 10px;
+  margin-bottom: 4px;
+}

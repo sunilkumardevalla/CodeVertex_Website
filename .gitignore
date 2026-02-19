@@ -1,1 +1,9 @@
 .DS_Store
+.tools/
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+coverage/
+*.log

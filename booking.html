@@ -7,6 +7,7 @@
     <meta name="description" content="Schedule a cybersecurity strategy call with CodeVertex and share scope details for fast enterprise triage." />
     <meta name="theme-color" content="#0d6ed1" />
     <meta name="cv-track-endpoint" content="/api/track" />
+    <meta name="cv-turnstile-sitekey" content="" />
     <meta name="cv-crm-webhook" content="/api/crm-intake" />
     <link rel="canonical" href="https://codevertex.io/booking.html" />
     <meta property="og:title" content="Book Executive Security Call | CodeVertex" />
@@ -62,7 +63,7 @@
 
           <article class="form-shell reveal">
             <h3>Booking intake form</h3>
-            <form class="form" name="booking-intake" method="POST" data-async-form="true" data-booking-form="true" data-webhook-target="crm">
+            <form class="form" name="booking-intake" method="POST" data-async-form="true" data-booking-form="true" data-webhook-target="crm" data-turnstile-required="true">
               <input type="hidden" name="form-name" value="booking-intake" />
               <input type="hidden" name="lead_source" value="website-booking" />
               <input type="hidden" name="scope" value="consultation" />
