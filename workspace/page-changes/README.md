@@ -7,4 +7,4 @@ Recommended files:
 - approved-YYYYMMDD.md
 
 Template:
-- `/Users/sunil/Documents/New project/templates/page-change-template.md`
+- `/Users/sunil/Documents/CodeVertex_Website/templates/page-change-template.md`

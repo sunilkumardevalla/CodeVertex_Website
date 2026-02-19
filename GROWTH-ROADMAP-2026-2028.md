@@ -107,19 +107,19 @@ Deliverables:
 5. Which offers need packaging or pricing adjustment?
 
 ## Files Supporting This Roadmap
-- `/Users/sunil/Documents/New project/pricing.html`
-- `/Users/sunil/Documents/New project/contact.html`
-- `/Users/sunil/Documents/New project/insights.html`
-- `/Users/sunil/Documents/New project/booking.html`
-- `/Users/sunil/Documents/New project/checkout.html`
-- `/Users/sunil/Documents/New project/newsletter.html`
-- `/Users/sunil/Documents/New project/partner-program.html`
-- `/Users/sunil/Documents/New project/revenue-dashboard.html`
-- `/Users/sunil/Documents/New project/enterprise-finance-security.html`
-- `/Users/sunil/Documents/New project/unsubscribe.html`
-- `/Users/sunil/Documents/New project/crm-webhook-test.html`
-- `/Users/sunil/Documents/New project/CRM-WEBHOOK-MAPPING.md`
-- `/Users/sunil/Documents/New project/workspace/editorial-calendar/2026-calendar.md`
-- `/Users/sunil/Documents/New project/workspace/email-sequences/security-lead-sequence.md`
-- `/Users/sunil/Documents/New project/workspace/email-sequences/engineering-lead-sequence.md`
-- `/Users/sunil/Documents/New project/workspace/email-sequences/grc-lead-sequence.md`
+- `/Users/sunil/Documents/CodeVertex_Website/pricing.html`
+- `/Users/sunil/Documents/CodeVertex_Website/contact.html`
+- `/Users/sunil/Documents/CodeVertex_Website/insights.html`
+- `/Users/sunil/Documents/CodeVertex_Website/booking.html`
+- `/Users/sunil/Documents/CodeVertex_Website/checkout.html`
+- `/Users/sunil/Documents/CodeVertex_Website/newsletter.html`
+- `/Users/sunil/Documents/CodeVertex_Website/partner-program.html`
+- `/Users/sunil/Documents/CodeVertex_Website/revenue-dashboard.html`
+- `/Users/sunil/Documents/CodeVertex_Website/enterprise-finance-security.html`
+- `/Users/sunil/Documents/CodeVertex_Website/unsubscribe.html`
+- `/Users/sunil/Documents/CodeVertex_Website/crm-webhook-test.html`
+- `/Users/sunil/Documents/CodeVertex_Website/CRM-WEBHOOK-MAPPING.md`
+- `/Users/sunil/Documents/CodeVertex_Website/workspace/editorial-calendar/2026-calendar.md`
+- `/Users/sunil/Documents/CodeVertex_Website/workspace/email-sequences/security-lead-sequence.md`
+- `/Users/sunil/Documents/CodeVertex_Website/workspace/email-sequences/engineering-lead-sequence.md`
+- `/Users/sunil/Documents/CodeVertex_Website/workspace/email-sequences/grc-lead-sequence.md`

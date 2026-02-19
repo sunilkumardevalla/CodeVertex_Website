@@ -22,7 +22,7 @@ Continue improving and maintaining this website from this workspace.
 - Validate links/media paths after edits.
 
 ## Quick Start
-- Open `/Users/sunil/Documents/New project/index.html` in a browser.
+- Open `/Users/sunil/Documents/CodeVertex_Website/index.html` in a browser.
 - Edit files directly in this folder.
 
 ## Notes for Next Codex Session

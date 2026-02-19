@@ -61,12 +61,12 @@ If checkout/booking/newsletter fails:
 4. Log incident in status workflow and restore with retest.
 
 ## 8) Source Files
-- `/Users/sunil/Documents/New project/booking.html`
-- `/Users/sunil/Documents/New project/newsletter.html`
-- `/Users/sunil/Documents/New project/checkout.html`
-- `/Users/sunil/Documents/New project/partner-program.html`
-- `/Users/sunil/Documents/New project/revenue-dashboard.html`
-- `/Users/sunil/Documents/New project/enterprise-finance-security.html`
-- `/Users/sunil/Documents/New project/unsubscribe.html`
-- `/Users/sunil/Documents/New project/script.js`
-- `/Users/sunil/Documents/New project/REVENUE-PLAN-README.md`
+- `/Users/sunil/Documents/CodeVertex_Website/booking.html`
+- `/Users/sunil/Documents/CodeVertex_Website/newsletter.html`
+- `/Users/sunil/Documents/CodeVertex_Website/checkout.html`
+- `/Users/sunil/Documents/CodeVertex_Website/partner-program.html`
+- `/Users/sunil/Documents/CodeVertex_Website/revenue-dashboard.html`
+- `/Users/sunil/Documents/CodeVertex_Website/enterprise-finance-security.html`
+- `/Users/sunil/Documents/CodeVertex_Website/unsubscribe.html`
+- `/Users/sunil/Documents/CodeVertex_Website/script.js`
+- `/Users/sunil/Documents/CodeVertex_Website/REVENUE-PLAN-README.md`

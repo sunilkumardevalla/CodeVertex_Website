@@ -3,8 +3,8 @@
 Static website project for a cybersecurity services brand.
 
 ## Start Here
-- Primary thread/context: `/Users/sunil/Documents/New project/THREAD.md`
-- Entry page: `/Users/sunil/Documents/New project/index.html`
+- Primary thread/context: `/Users/sunil/Documents/CodeVertex_Website/THREAD.md`
+- Entry page: `/Users/sunil/Documents/CodeVertex_Website/index.html`
 
 ## Main Files
 - `index.html`

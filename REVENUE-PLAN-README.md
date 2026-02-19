@@ -22,7 +22,7 @@ This document is the execution reference for growing website revenue through ent
 
 ### Pricing Page
 - Added a dedicated comparison page:
-  - `/Users/sunil/Documents/New project/pricing.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/pricing.html`
 - Includes project package bands, recurring retainers, and strategic add-ons.
 - Includes procurement note explaining final quote process.
 - Added owned commercial asset downloads:
@@ -48,34 +48,34 @@ This document is the execution reference for growing website revenue through ent
 
 ### Booking Conversion Flow
 - Added dedicated strategy-call conversion page:
-  - `/Users/sunil/Documents/New project/booking.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/booking.html`
 - Includes slot selection, high-intent intake fields, and CRM webhook routing.
 
 ### Nurture Subscription Flow
 - Added segmented briefing capture page:
-  - `/Users/sunil/Documents/New project/newsletter.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/newsletter.html`
 - Includes role-based segmentation and marketing webhook routing.
 
 ### Checkout and Paid Kickoff Flow
 - Added secure checkout intake page:
-  - `/Users/sunil/Documents/New project/checkout.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/checkout.html`
 - Supports paid kickoff/deposit intent and procurement-aligned commercial intake.
 
 ### Partner and ABM Growth
 - Added partner/referral program page:
-  - `/Users/sunil/Documents/New project/partner-program.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/partner-program.html`
 - Added ABM sector landing page (financial services):
-  - `/Users/sunil/Documents/New project/enterprise-finance-security.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/enterprise-finance-security.html`
 
 ### Revenue Intelligence Dashboard
 - Added executive revenue dashboard page:
-  - `/Users/sunil/Documents/New project/revenue-dashboard.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/revenue-dashboard.html`
 - Backed by data feed:
-  - `/Users/sunil/Documents/New project/assets/data/revenue-dashboard.json`
+  - `/Users/sunil/Documents/CodeVertex_Website/assets/data/revenue-dashboard.json`
 
 ### Preferences and Consent Center
 - Added preferences management page:
-  - `/Users/sunil/Documents/New project/unsubscribe.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/unsubscribe.html`
 - Supports unsubscribe/segment updates and local cookie-consent reset.
 
 ### Live Chat Qualifier (Owned)
@@ -84,23 +84,23 @@ This document is the execution reference for growing website revenue through ent
 
 ### Launch Handoff and Future Monetization Coverage
 - Added full deployment and operations handoff:
-  - `/Users/sunil/Documents/New project/LAUNCH-HANDOFF-PACK.md`
-  - `/Users/sunil/Documents/New project/API-ENDPOINT-CONTRACTS.md`
-  - `/Users/sunil/Documents/New project/WEBHOOK-TEST-PLAYBOOK.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/LAUNCH-HANDOFF-PACK.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/API-ENDPOINT-CONTRACTS.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/WEBHOOK-TEST-PLAYBOOK.md`
 - Added complete future monetization options reference:
-  - `/Users/sunil/Documents/New project/MONETIZATION-OPTIONS-PLAYBOOK.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/MONETIZATION-OPTIONS-PLAYBOOK.md`
 - Added automated monetization readiness check:
-  - `/Users/sunil/Documents/New project/scripts/monetization-check.sh`
+  - `/Users/sunil/Documents/CodeVertex_Website/scripts/monetization-check.sh`
 
 ### CRM Automation (Implemented in Frontend)
 - Lead scoring is computed from package, budget, timeline, and scope.
 - Routing intent is attached to each form submission as hidden fields.
 - This supports RevOps automation rules in CRM (priority, ownership, pipeline branch).
 - Added dedicated technical mapping reference:
-  - `/Users/sunil/Documents/New project/CRM-WEBHOOK-MAPPING.md`
-  - `/Users/sunil/Documents/New project/crm-webhook-mapping.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/CRM-WEBHOOK-MAPPING.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/crm-webhook-mapping.html`
 - Added dedicated CRM webhook test harness:
-  - `/Users/sunil/Documents/New project/crm-webhook-test.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/crm-webhook-test.html`
 - Supports live payload preview, derived routing-field inspection, and endpoint response logging.
 - Supports endpoint adapter presets:
   - Generic JSON
@@ -111,25 +111,25 @@ This document is the execution reference for growing website revenue through ent
 ### Insights Page
 - Added blog-to-service mapping section so editorial content directly supports pipeline growth.
 - Added scalable insights library feed backed by:
-  - `/Users/sunil/Documents/New project/assets/data/insights-library.json`
+  - `/Users/sunil/Documents/CodeVertex_Website/assets/data/insights-library.json`
   - Rendered dynamically in `insights.html` via `script.js`
 
 ### Content Operations System
 - Added dedicated operating hub page:
-  - `/Users/sunil/Documents/New project/content-studio.html`
+  - `/Users/sunil/Documents/CodeVertex_Website/content-studio.html`
 - Added structured future-change workspace:
-  - `/Users/sunil/Documents/New project/workspace/blog-drafts/`
-  - `/Users/sunil/Documents/New project/workspace/page-changes/`
-  - `/Users/sunil/Documents/New project/workspace/media-requests/`
-  - `/Users/sunil/Documents/New project/workspace/editorial-calendar/2026-calendar.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/workspace/blog-drafts/`
+  - `/Users/sunil/Documents/CodeVertex_Website/workspace/page-changes/`
+  - `/Users/sunil/Documents/CodeVertex_Website/workspace/media-requests/`
+  - `/Users/sunil/Documents/CodeVertex_Website/workspace/editorial-calendar/2026-calendar.md`
 - Added reusable authoring templates:
-  - `/Users/sunil/Documents/New project/templates/blog-post-template.md`
-  - `/Users/sunil/Documents/New project/templates/page-change-template.md`
-  - `/Users/sunil/Documents/New project/templates/case-study-template.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/templates/blog-post-template.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/templates/page-change-template.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/templates/case-study-template.md`
 
 ### 24-Month Growth Roadmap
 - Added step-by-step execution plan for monetization and scaling:
-  - `/Users/sunil/Documents/New project/GROWTH-ROADMAP-2026-2028.md`
+  - `/Users/sunil/Documents/CodeVertex_Website/GROWTH-ROADMAP-2026-2028.md`
 
 ### Internationalization
 - Added English and Spanish labels/options for new form fields in `script.js`.
@@ -273,43 +273,43 @@ This document is the execution reference for growing website revenue through ent
 
 ## 12. File Reference (Where Changes Were Made)
 
-- `/Users/sunil/Documents/New project/services.html`
-- `/Users/sunil/Documents/New project/pricing.html`
-- `/Users/sunil/Documents/New project/contact.html`
-- `/Users/sunil/Documents/New project/insights.html`
-- `/Users/sunil/Documents/New project/script.js`
-- `/Users/sunil/Documents/New project/styles.css`
-- `/Users/sunil/Documents/New project/document-center.html`
-- `/Users/sunil/Documents/New project/content-studio.html`
-- `/Users/sunil/Documents/New project/booking.html`
-- `/Users/sunil/Documents/New project/newsletter.html`
-- `/Users/sunil/Documents/New project/checkout.html`
-- `/Users/sunil/Documents/New project/partner-program.html`
-- `/Users/sunil/Documents/New project/enterprise-finance-security.html`
-- `/Users/sunil/Documents/New project/revenue-dashboard.html`
-- `/Users/sunil/Documents/New project/unsubscribe.html`
-- `/Users/sunil/Documents/New project/assets/data/revenue-dashboard.json`
-- `/Users/sunil/Documents/New project/LAUNCH-HANDOFF-PACK.md`
-- `/Users/sunil/Documents/New project/API-ENDPOINT-CONTRACTS.md`
-- `/Users/sunil/Documents/New project/WEBHOOK-TEST-PLAYBOOK.md`
-- `/Users/sunil/Documents/New project/MONETIZATION-OPTIONS-PLAYBOOK.md`
-- `/Users/sunil/Documents/New project/scripts/monetization-check.sh`
-- `/Users/sunil/Documents/New project/assets/data/insights-library.json`
-- `/Users/sunil/Documents/New project/templates/blog-post-template.md`
-- `/Users/sunil/Documents/New project/templates/page-change-template.md`
-- `/Users/sunil/Documents/New project/templates/case-study-template.md`
-- `/Users/sunil/Documents/New project/workspace/blog-drafts/README.md`
-- `/Users/sunil/Documents/New project/workspace/page-changes/README.md`
-- `/Users/sunil/Documents/New project/workspace/media-requests/README.md`
-- `/Users/sunil/Documents/New project/workspace/editorial-calendar/2026-calendar.md`
-- `/Users/sunil/Documents/New project/GROWTH-ROADMAP-2026-2028.md`
-- `/Users/sunil/Documents/New project/sitemap.xml`
-- `/Users/sunil/Documents/New project/assets/docs/codevertex-pricing-guide.pdf`
-- `/Users/sunil/Documents/New project/assets/docs/codevertex-pricing-guide.txt`
-- `/Users/sunil/Documents/New project/assets/docs/crm-webhook-field-map.txt`
-- `/Users/sunil/Documents/New project/CRM-WEBHOOK-MAPPING.md`
-- `/Users/sunil/Documents/New project/crm-webhook-mapping.html`
-- `/Users/sunil/Documents/New project/crm-webhook-test.html`
+- `/Users/sunil/Documents/CodeVertex_Website/services.html`
+- `/Users/sunil/Documents/CodeVertex_Website/pricing.html`
+- `/Users/sunil/Documents/CodeVertex_Website/contact.html`
+- `/Users/sunil/Documents/CodeVertex_Website/insights.html`
+- `/Users/sunil/Documents/CodeVertex_Website/script.js`
+- `/Users/sunil/Documents/CodeVertex_Website/styles.css`
+- `/Users/sunil/Documents/CodeVertex_Website/document-center.html`
+- `/Users/sunil/Documents/CodeVertex_Website/content-studio.html`
+- `/Users/sunil/Documents/CodeVertex_Website/booking.html`
+- `/Users/sunil/Documents/CodeVertex_Website/newsletter.html`
+- `/Users/sunil/Documents/CodeVertex_Website/checkout.html`
+- `/Users/sunil/Documents/CodeVertex_Website/partner-program.html`
+- `/Users/sunil/Documents/CodeVertex_Website/enterprise-finance-security.html`
+- `/Users/sunil/Documents/CodeVertex_Website/revenue-dashboard.html`
+- `/Users/sunil/Documents/CodeVertex_Website/unsubscribe.html`
+- `/Users/sunil/Documents/CodeVertex_Website/assets/data/revenue-dashboard.json`
+- `/Users/sunil/Documents/CodeVertex_Website/LAUNCH-HANDOFF-PACK.md`
+- `/Users/sunil/Documents/CodeVertex_Website/API-ENDPOINT-CONTRACTS.md`
+- `/Users/sunil/Documents/CodeVertex_Website/WEBHOOK-TEST-PLAYBOOK.md`
+- `/Users/sunil/Documents/CodeVertex_Website/MONETIZATION-OPTIONS-PLAYBOOK.md`
+- `/Users/sunil/Documents/CodeVertex_Website/scripts/monetization-check.sh`
+- `/Users/sunil/Documents/CodeVertex_Website/assets/data/insights-library.json`
+- `/Users/sunil/Documents/CodeVertex_Website/templates/blog-post-template.md`
+- `/Users/sunil/Documents/CodeVertex_Website/templates/page-change-template.md`
+- `/Users/sunil/Documents/CodeVertex_Website/templates/case-study-template.md`
+- `/Users/sunil/Documents/CodeVertex_Website/workspace/blog-drafts/README.md`
+- `/Users/sunil/Documents/CodeVertex_Website/workspace/page-changes/README.md`
+- `/Users/sunil/Documents/CodeVertex_Website/workspace/media-requests/README.md`
+- `/Users/sunil/Documents/CodeVertex_Website/workspace/editorial-calendar/2026-calendar.md`
+- `/Users/sunil/Documents/CodeVertex_Website/GROWTH-ROADMAP-2026-2028.md`
+- `/Users/sunil/Documents/CodeVertex_Website/sitemap.xml`
+- `/Users/sunil/Documents/CodeVertex_Website/assets/docs/codevertex-pricing-guide.pdf`
+- `/Users/sunil/Documents/CodeVertex_Website/assets/docs/codevertex-pricing-guide.txt`
+- `/Users/sunil/Documents/CodeVertex_Website/assets/docs/crm-webhook-field-map.txt`
+- `/Users/sunil/Documents/CodeVertex_Website/CRM-WEBHOOK-MAPPING.md`
+- `/Users/sunil/Documents/CodeVertex_Website/crm-webhook-mapping.html`
+- `/Users/sunil/Documents/CodeVertex_Website/crm-webhook-test.html`
 
 ## 13. Next Recommended Enhancements
 
