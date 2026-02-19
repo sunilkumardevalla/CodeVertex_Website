@@ -1,8 +1,4 @@
-# Force HTTPS
-http://codevertex.io/* https://codevertex.io/:splat 301!
-http://www.codevertex.io/* https://codevertex.io/:splat 301!
-
-# Blog convenience routes
+# Cloudflare Pages-safe redirects (path-based only)
 /blog /blog.html 301
 /incident-watch /incident-watch.html 301
 /blog/tag/penetration-testing /blog.html?category=Penetration%20Testing 301
@@ -10,5 +6,5 @@ http://www.codevertex.io/* https://codevertex.io/:splat 301!
 /blog/tag/executive-strategy /blog.html?category=Executive%20Strategy 301
 /blog/tag/cloud-security /blog.html?category=Cloud%20Security 301
 
-# SPA-style fallback to 404 page
+# Fallback
 /* /404.html 404
