@@ -1621,6 +1621,12 @@ document.querySelectorAll("form[data-async-form='true']").forEach((form) => {
       status.textContent = dict["form.ok"];
       status.classList.add("is-success");
 
+      const successTarget = form.getAttribute("data-success-reveal") || "";
+      if (successTarget) {
+        const revealEl = document.querySelector(successTarget);
+        if (revealEl) revealEl.hidden = false;
+      }
+
       if (form.hasAttribute("data-booking-form")) {
         form.querySelectorAll("[data-slot-button]").forEach((slotBtn) => slotBtn.classList.remove("is-selected"));
       }

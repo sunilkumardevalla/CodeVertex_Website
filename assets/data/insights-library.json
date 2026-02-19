@@ -4,18 +4,34 @@
     {
       "date": "Feb 2026",
       "read_time": "8 min read",
-      "title": "Board Cyber Brief Structure",
-      "summary": "How to report cyber risk in executive language with action accountability.",
-      "url": "contact.html",
-      "cta": "Request private briefing"
+      "title": "How To Scope an Enterprise Penetration Test in 2026",
+      "summary": "Scope framework to align business impact, technical depth, and remediation accountability.",
+      "url": "blog-scope-pentest-2026.html",
+      "cta": "Read article"
+    },
+    {
+      "date": "Feb 2026",
+      "read_time": "7 min read",
+      "title": "API Security Testing Checklist for Product Teams",
+      "summary": "Practical checklist to reduce exploitable API flaws in continuous delivery environments.",
+      "url": "blog-api-security-checklist.html",
+      "cta": "Read article"
+    },
+    {
+      "date": "Feb 2026",
+      "read_time": "8 min read",
+      "title": "Board Cyber Brief Template",
+      "summary": "Turn technical findings into board-level decisions with concise risk narrative structure.",
+      "url": "blog-board-cyber-brief.html",
+      "cta": "Read article"
     },
     {
       "date": "Feb 2026",
       "read_time": "9 min read",
-      "title": "SOC 2 + Penetration Testing Integration Guide",
-      "summary": "A practical path to align offensive testing outputs with SOC 2 evidence cycles.",
-      "url": "services.html",
-      "cta": "View service coverage"
+      "title": "Cloud IAM Attack Paths Enterprises Miss Most",
+      "summary": "Privilege escalation pathways and immediate mitigation priorities for cloud-first organizations.",
+      "url": "blog-cloud-iam-attack-paths.html",
+      "cta": "Read article"
     },
     {
       "date": "Feb 2026",
@@ -51,14 +67,6 @@
     },
     {
       "date": "Jan 2026",
-      "read_time": "7 min read",
-      "title": "Pentest Retest Protocol",
-      "summary": "How to verify fixes with evidence quality suitable for audit committees.",
-      "url": "checklist.html",
-      "cta": "Open checklist"
-    },
-    {
-      "date": "Jan 2026",
       "read_time": "6 min read",
       "title": "Security Procurement Response Kit",
       "summary": "How to package trust artifacts for legal, procurement, and security reviews.",
@@ -88,14 +96,6 @@
       "summary": "A structure for continuous testing, ownership, and remediation governance.",
       "url": "services.html",
       "cta": "View service model"
-    },
-    {
-      "date": "Dec 2025",
-      "read_time": "7 min read",
-      "title": "Executive Narrative for Security Findings",
-      "summary": "Translate technical findings into budget-ready priorities and action plans.",
-      "url": "security-brief.html",
-      "cta": "Open security brief"
     }
   ]
 }
