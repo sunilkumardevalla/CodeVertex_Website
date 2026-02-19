@@ -2,11 +2,8 @@
 http://codevertex.io/* https://codevertex.io/:splat 301!
 http://www.codevertex.io/* https://codevertex.io/:splat 301!
 
-# API function routes
-/api/track /.netlify/functions/track 200
-/api/crm-intake /.netlify/functions/crm-intake 200
-/api/marketing-intake /.netlify/functions/marketing-intake 200
-/api/router-health /.netlify/functions/router-health 200
+# API function routes (force rewrite)
+/api/* /.netlify/functions/:splat 200!
 
 # SPA-style fallback to 404 page
 /* /404.html 404
