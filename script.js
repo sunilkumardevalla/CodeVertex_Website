@@ -1369,7 +1369,22 @@ const injectPricingLinks = () => {
 const normalizeNavigation = () => {
   const navEl = document.querySelector(".main-nav");
   if (navEl) {
-    navEl.querySelectorAll("a[href='blog.html'], a[href='pricing.html']").forEach((el) => el.remove());
+    const path = window.location.pathname.split("/").pop() || "index.html";
+    const allowed = [
+      { href: "index.html", key: "nav.home", label: "Home" },
+      { href: "services.html", key: "nav.services", label: "Services" },
+      { href: "industries.html", key: "nav.industries", label: "Industries" },
+      { href: "insights.html", key: "nav.insights", label: "Insights" },
+      { href: "contact.html", key: "nav.contact", label: "Contact" }
+    ];
+
+    const isPrimaryNav = navEl.querySelector("a[href='services.html']") || navEl.querySelector("a[href='insights.html']");
+    if (isPrimaryNav) {
+      navEl.innerHTML = allowed.map((item) => {
+        const active = path === item.href || (path === "" && item.href === "index.html");
+        return `<a href="" data-i18n=""></a>`;
+      }).join("");
+    }
   }
 
   document.querySelectorAll(".footer-col").forEach((col) => {
