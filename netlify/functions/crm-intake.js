@@ -12,6 +12,7 @@ const {
   checkRateLimit,
   checkDuplicate
 } = require('./_common');
+const { routeLead } = require('./_lead-router');
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return json(405, { error: 'method_not_allowed' });
@@ -30,7 +31,7 @@ exports.handler = async (event) => {
 
   const dedupeKey = `crm:${formName}:${email}`;
   if (checkDuplicate(dedupeKey, 5 * 60_000)) {
-    return json(202, { ok: true, deduped: true });
+    return json(202, { ok: true, deduped: true, route: 'crm' });
   }
 
   const leadTier = normalizeString(payload.lead_tier || 'standard', 32);
@@ -49,6 +50,21 @@ exports.handler = async (event) => {
     payload
   };
 
-  console.log('[cv-crm-intake]', JSON.stringify(record));
-  return json(202, { ok: true, lead_id: leadId, route: 'crm' });
+  const delivery = await routeLead({ channel: 'crm', payload: record, leadId, sourceIp: ip });
+  console.log('[cv-crm-intake]', JSON.stringify({ ...record, delivery }));
+
+  const failHard = String(process.env.CV_FAIL_ON_ROUTING_ERROR || '').toLowerCase() === 'true';
+  if (!delivery.routed && failHard) {
+    return json(502, { error: 'downstream_delivery_failed', lead_id: leadId, routing_id: delivery.routing_id });
+  }
+
+  return json(202, {
+    ok: true,
+    lead_id: leadId,
+    route: 'crm',
+    routing_id: delivery.routing_id,
+    routed: delivery.routed,
+    priority: delivery.priority,
+    dead_letter: delivery.dead_letter
+  });
 };

@@ -12,6 +12,7 @@ const {
   checkRateLimit,
   checkDuplicate
 } = require('./_common');
+const { routeLead } = require('./_lead-router');
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return json(405, { error: 'method_not_allowed' });
@@ -30,7 +31,7 @@ exports.handler = async (event) => {
 
   const dedupeKey = `mkt:${formName}:${email}`;
   if (checkDuplicate(dedupeKey, 10 * 60_000)) {
-    return json(202, { ok: true, deduped: true });
+    return json(202, { ok: true, deduped: true, route: 'marketing' });
   }
 
   const subscriberId = crypto.createHash('sha256').update(`${email}:${Date.now()}:${Math.random()}`).digest('hex').slice(0, 20);
@@ -47,6 +48,21 @@ exports.handler = async (event) => {
     payload
   };
 
-  console.log('[cv-marketing-intake]', JSON.stringify(record));
-  return json(202, { ok: true, subscriber_id: subscriberId, route: 'marketing' });
+  const delivery = await routeLead({ channel: 'marketing', payload: record, leadId: subscriberId, sourceIp: ip });
+  console.log('[cv-marketing-intake]', JSON.stringify({ ...record, delivery }));
+
+  const failHard = String(process.env.CV_FAIL_ON_ROUTING_ERROR || '').toLowerCase() === 'true';
+  if (!delivery.routed && failHard) {
+    return json(502, { error: 'downstream_delivery_failed', subscriber_id: subscriberId, routing_id: delivery.routing_id });
+  }
+
+  return json(202, {
+    ok: true,
+    subscriber_id: subscriberId,
+    route: 'marketing',
+    routing_id: delivery.routing_id,
+    routed: delivery.routed,
+    priority: delivery.priority,
+    dead_letter: delivery.dead_letter
+  });
 };

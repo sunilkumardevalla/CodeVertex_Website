@@ -29,8 +29,20 @@ required_data=(
   assets/data/insights-library.json
   assets/data/revenue-dashboard.json
 )
+
+required_api=(
+  netlify/functions/_common.js
+  netlify/functions/_lead-router.js
+  netlify/functions/crm-intake.js
+  netlify/functions/marketing-intake.js
+  netlify/functions/track.js
+  netlify.toml
+)
 for f in "${required_data[@]}"; do
   [[ -f "$f" ]] || fail "missing data file: $f"
+done
+for f in "${required_api[@]}"; do
+  [[ -f "$f" ]] || fail "missing api file: $f"
 done
 
 rg -q "data-webhook-target=\"crm\"" booking.html || fail "booking crm target missing"

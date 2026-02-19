@@ -1,8 +1,13 @@
 # Deployment Environment
 
 ## Required environment variables
-- `CV_WEBHOOK_SIGNING_SECRET`:
-  - used by `/api/crm-intake` and `/api/marketing-intake` for signature verification.
+- `CV_WEBHOOK_SIGNING_SECRET`: verify incoming signed requests.
+- `CV_DOWNSTREAM_SIGNING_SECRET`: optional signature for outgoing webhooks.
+- `CV_CRM_ENTERPRISE_WEBHOOK`, `CV_CRM_PRIMARY_WEBHOOK`, `CV_CRM_SECONDARY_WEBHOOK`: CRM routing targets.
+- `CV_MARKETING_URGENT_WEBHOOK`, `CV_MARKETING_PRIMARY_WEBHOOK`, `CV_MARKETING_SECONDARY_WEBHOOK`: marketing routing targets.
+- `CV_DEAD_LETTER_WEBHOOK`: dead-letter fallback target.
+- `CV_ROUTER_MAX_ATTEMPTS`, `CV_ROUTER_BASE_DELAY_MS`: retry controls.
+- `CV_FAIL_ON_ROUTING_ERROR`: strict fail mode toggle.
 
 ## API routes (Netlify)
 - `/api/track` -> `netlify/functions/track.js`
@@ -20,3 +25,7 @@
 2. Submit sample booking/checkout/newsletter flows.
 3. Verify events arriving from `/api/track`.
 4. Confirm status page timestamp and legal docs accessibility.
+
+
+## Routing Reference
+- `docs/LEAD-ROUTING-ARCHITECTURE.md`
