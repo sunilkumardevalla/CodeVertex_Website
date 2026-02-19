@@ -1325,15 +1325,6 @@ const menuToggle = document.querySelector(".menu-toggle");
 const siteHeader = document.querySelector(".site-header");
 const headerControls = document.querySelector(".header-controls");
 
-if (headerControls && !headerControls.querySelector(".header-sticky-cta")) {
-  const stickyCta = document.createElement("a");
-  stickyCta.className = "btn primary header-sticky-cta";
-  stickyCta.href = "contact.html";
-  stickyCta.setAttribute("data-i18n", "cta.call");
-  stickyCta.textContent = i18n.en["cta.call"];
-  headerControls.insertBefore(stickyCta, menuToggle || null);
-}
-
 if (nav && menuToggle) {
   const setMenu = (open) => {
     nav.classList.toggle("open", open);
@@ -1362,21 +1353,6 @@ if (siteHeader) {
 }
 
 const injectPricingLinks = () => {
-  const navEl = document.querySelector(".main-nav");
-  if (navEl && !navEl.querySelector("a[href='pricing.html']")) {
-    const servicesLink = navEl.querySelector("a[href='services.html']");
-    const pricingLink = document.createElement("a");
-    pricingLink.href = "pricing.html";
-    pricingLink.setAttribute("data-i18n", "nav.pricing");
-    pricingLink.textContent = "Pricing";
-    if (window.location.pathname.endsWith("/pricing.html") || window.location.pathname === "/pricing.html") {
-      pricingLink.classList.add("active");
-    }
-    if (servicesLink && servicesLink.nextSibling) navEl.insertBefore(pricingLink, servicesLink.nextSibling);
-    else if (servicesLink) navEl.appendChild(pricingLink);
-    else navEl.prepend(pricingLink);
-  }
-
   document.querySelectorAll(".footer-col").forEach((col) => {
     if (!col.querySelector("[data-i18n='footer.group.services']")) return;
     if (col.querySelector("a[href='pricing.html']")) return;
@@ -1390,7 +1366,30 @@ const injectPricingLinks = () => {
   });
 };
 
+const normalizeNavigation = () => {
+  const navEl = document.querySelector(".main-nav");
+  if (navEl) {
+    navEl.querySelectorAll("a[href='blog.html'], a[href='pricing.html']").forEach((el) => el.remove());
+  }
+
+  document.querySelectorAll(".footer-col").forEach((col) => {
+    const hasServicesGroup = Boolean(col.querySelector("[data-i18n='footer.group.services']"));
+    const hasContentGroup = /content/i.test((col.querySelector(".footer-group-title")?.textContent || "").trim());
+    if (!hasServicesGroup && !hasContentGroup) return;
+    if (col.querySelector("a[href='blog.html']")) return;
+
+    const blogLink = document.createElement("a");
+    blogLink.href = "blog.html";
+    blogLink.textContent = "Blog";
+
+    const insightsLink = col.querySelector("a[href='insights.html']");
+    if (insightsLink && insightsLink.nextSibling) col.insertBefore(blogLink, insightsLink.nextSibling);
+    else col.appendChild(blogLink);
+  });
+};
+
 injectPricingLinks();
+normalizeNavigation();
 
 let maxTrackedDepth = 0;
 const depthMarks = [25, 50, 75, 100];
@@ -2365,3 +2364,59 @@ if (blogIndexRoot || relatedPostsRoot) {
       trackEvent("blog_feed_failed");
     });
 }
+
+const initBlogMediaExperience = () => {
+  const audioBtn = document.querySelector("[data-blog-audio-toggle]");
+  const audioSource = document.querySelector("[data-blog-audio-source]");
+
+  if (audioBtn && audioSource) {
+    let speaking = false;
+    const stopSpeech = () => {
+      window.speechSynthesis.cancel();
+      speaking = false;
+      audioBtn.textContent = "Play audio summary";
+      audioBtn.setAttribute("aria-pressed", "false");
+    };
+
+    audioBtn.addEventListener("click", () => {
+      if (!("speechSynthesis" in window)) {
+        audioBtn.textContent = "Audio not supported on this browser";
+        return;
+      }
+
+      if (speaking) {
+        stopSpeech();
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(audioSource.textContent.trim());
+      utterance.rate = 1;
+      utterance.pitch = 1;
+      utterance.onend = stopSpeech;
+      utterance.onerror = stopSpeech;
+
+      speaking = true;
+      audioBtn.textContent = "Stop audio summary";
+      audioBtn.setAttribute("aria-pressed", "true");
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+      trackEvent("blog_audio_play");
+    });
+
+    window.addEventListener("beforeunload", () => {
+      if (speaking) window.speechSynthesis.cancel();
+    });
+  }
+
+  document.querySelectorAll("[data-reel-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const card = button.closest("[data-reel]");
+      if (!card) return;
+      const playing = card.classList.toggle("is-playing");
+      button.textContent = playing ? "Pause reel" : "Play reel";
+      trackEvent("blog_reel_toggle", { state: playing ? "play" : "pause" });
+    });
+  });
+};
+
+initBlogMediaExperience();
