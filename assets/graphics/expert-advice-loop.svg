@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="Expert advice loop">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08152d"/>
+      <stop offset="100%" stop-color="#0f8c8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#grad)"/>
+  <g transform="translate(600 360)" fill="none" stroke-linecap="round">
+    <path d="M-280 0a280 280 0 1 1 560 0" stroke="#8edbff" stroke-width="18" opacity=".9">
+      <animate attributeName="stroke-dasharray" values="10 30;90 30;10 30" dur="3.8s" repeatCount="indefinite"/>
+    </path>
+    <path d="M280 0a280 280 0 1 1 -560 0" stroke="#9ff7d8" stroke-width="18" opacity=".8">
+      <animate attributeName="stroke-dasharray" values="24 34;104 34;24 34" dur="4.1s" repeatCount="indefinite"/>
+    </path>
+    <circle r="112" stroke="#d0f5ff" stroke-width="10" opacity=".8"/>
+    <circle r="68" fill="#0d6ed1" opacity=".85"/>
+  </g>
+  <g fill="#d9f7ff" font-family="Sora, sans-serif" text-anchor="middle">
+    <text x="600" y="118" font-size="34">Expert Advice Loop</text>
+    <text x="600" y="164" font-size="22" opacity=".85">Detect → Explain → Prioritize → Validate → Learn</text>
+  </g>
+</svg>

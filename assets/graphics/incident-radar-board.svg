@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="Incident radar board">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#061428"/>
+      <stop offset="100%" stop-color="#0d3a83"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#84f5ff" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#84f5ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <g transform="translate(600 360)">
+    <circle r="70" fill="none" stroke="#79d7ff" stroke-width="2" opacity=".8"/>
+    <circle r="140" fill="none" stroke="#79d7ff" stroke-width="2" opacity=".55"/>
+    <circle r="210" fill="none" stroke="#79d7ff" stroke-width="2" opacity=".35"/>
+    <circle r="280" fill="none" stroke="#79d7ff" stroke-width="2" opacity=".2"/>
+    <path d="M0-280V280M-280 0H280" stroke="#79d7ff" stroke-width="1" opacity=".35"/>
+    <path d="M-198-198L198 198M198-198L-198 198" stroke="#79d7ff" stroke-width="1" opacity=".25"/>
+    <circle r="290" fill="url(#pulse)">
+      <animate attributeName="r" values="120;305;120" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values=".35;.08;.35" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <g fill="#9be9ff">
+      <circle cx="120" cy="-72" r="8"><animate attributeName="r" values="6;11;6" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="-186" cy="122" r="8"><animate attributeName="r" values="7;12;7" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="202" cy="160" r="8"><animate attributeName="r" values="8;13;8" dur="2.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-64" cy="-204" r="8"><animate attributeName="r" values="6;10;6" dur="2.2s" repeatCount="indefinite"/></circle>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,71 @@
+{
+  "updated_at": "2026-02-19",
+  "items": [
+    {
+      "id": "inc-2026-0219-identity-chain",
+      "date": "2026-02-19",
+      "category": "Identity",
+      "severity": "Critical",
+      "title": "Identity trust-chain abuse in hybrid cloud onboarding flows",
+      "summary": "Escalation paths can emerge when federated identity mappings and legacy role assumptions overlap during migrations.",
+      "expert_advice": "Validate transitive trust assumptions, enforce time-bound role grants, and run adversarial chain simulations before cutover.",
+      "cta_label": "Book identity assessment",
+      "cta_url": "security-assessment.html"
+    },
+    {
+      "id": "inc-2026-0218-api-fallback",
+      "date": "2026-02-18",
+      "category": "API Security",
+      "severity": "High",
+      "title": "Fallback endpoint exposure during release rollback",
+      "summary": "Teams often secure primary API paths but overlook emergency fallback routes and debug interfaces under rollback conditions.",
+      "expert_advice": "Add rollback-path tests to pre-release gates and require policy parity checks for all fallback routes.",
+      "cta_label": "Open API checklist",
+      "cta_url": "blog-api-security-checklist.html"
+    },
+    {
+      "id": "inc-2026-0217-cloud-token",
+      "date": "2026-02-17",
+      "category": "Cloud",
+      "severity": "High",
+      "title": "Runtime token leakage risk in ephemeral workloads",
+      "summary": "Short-lived workloads can still expose metadata-derived credentials when runtime boundary controls are not hardened.",
+      "expert_advice": "Harden metadata access, isolate workload identity contexts, and monitor abnormal token usage bursts.",
+      "cta_label": "Review cloud guidance",
+      "cta_url": "blog-cloud-iam-attack-paths.html"
+    },
+    {
+      "id": "inc-2026-0215-board-signal",
+      "date": "2026-02-15",
+      "category": "Executive Strategy",
+      "severity": "Medium",
+      "title": "Board reports overloaded with vulnerability volume and no decision asks",
+      "summary": "Risk committees increasingly request concise business impact scenarios and explicit decision options over technical volume metrics.",
+      "expert_advice": "Use a one-page board brief with risk delta, decision table, and owner-backed accountability metrics.",
+      "cta_label": "Use board template",
+      "cta_url": "blog-board-cyber-brief.html"
+    },
+    {
+      "id": "inc-2026-0213-detection-lag",
+      "date": "2026-02-13",
+      "category": "Detection",
+      "severity": "Medium",
+      "title": "Alert fatigue masking lateral movement indicators",
+      "summary": "High-volume alert streams can hide chained identity and application events that indicate active lateral movement.",
+      "expert_advice": "Correlate identity, API, and cloud events into chain-based detections instead of isolated event scoring.",
+      "cta_label": "See response model",
+      "cta_url": "services.html"
+    },
+    {
+      "id": "inc-2026-0211-remediation-drift",
+      "date": "2026-02-11",
+      "category": "Remediation",
+      "severity": "Medium",
+      "title": "Reopened findings after incomplete fix validation",
+      "summary": "Teams close tickets quickly but skip adversarial retest verification, causing recurring exploitable paths.",
+      "expert_advice": "Require closure evidence, retest pass criteria, and monthly reopened-risk reviews with engineering owners.",
+      "cta_label": "Open remediation playbook",
+      "cta_url": "resource-center.html"
+    }
+  ]
+}

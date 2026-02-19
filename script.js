@@ -1391,15 +1391,18 @@ const normalizeNavigation = () => {
     const hasServicesGroup = Boolean(col.querySelector("[data-i18n='footer.group.services']"));
     const hasContentGroup = /content/i.test((col.querySelector(".footer-group-title")?.textContent || "").trim());
     if (!hasServicesGroup && !hasContentGroup) return;
-    if (col.querySelector("a[href='blog.html']")) return;
+    const ensureFooterLink = (href, label, insertAfterHref = "") => {
+      if (col.querySelector(`a[href=""]`)) return;
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = label;
+      const afterEl = insertAfterHref ? col.querySelector(`a[href=""]`) : null;
+      if (afterEl && afterEl.nextSibling) col.insertBefore(link, afterEl.nextSibling);
+      else col.appendChild(link);
+    };
 
-    const blogLink = document.createElement("a");
-    blogLink.href = "blog.html";
-    blogLink.textContent = "Blog";
-
-    const insightsLink = col.querySelector("a[href='insights.html']");
-    if (insightsLink && insightsLink.nextSibling) col.insertBefore(blogLink, insightsLink.nextSibling);
-    else col.appendChild(blogLink);
+    ensureFooterLink("incident-watch.html", "Incident Watch", "insights.html");
+    ensureFooterLink("blog.html", "Blog", "incident-watch.html");
   });
 };
 
@@ -2455,3 +2458,39 @@ const initBlogMediaExperience = () => {
 };
 
 initBlogMediaExperience();
+
+const renderIncidentFeed = (items, rootEl) => {
+  if (!rootEl) return;
+  if (!Array.isArray(items) || !items.length) {
+    rootEl.innerHTML = `<article class="card reveal"><h3>Incident briefings unavailable</h3><p>Unable to load incident updates right now.</p><a class="inline-link" href="contact.html">Contact our team</a></article>`;
+    return;
+  }
+
+  rootEl.innerHTML = items.map((item) => {
+    const severityClass = String(item.severity || "").toLowerCase();
+    return `
+      <article class="card reveal incident-card incident-${severityClass}">
+        <p class="kicker">${item.category} · ${item.severity} · ${item.date}</p>
+        <h3>${item.title}</h3>
+        <p>${item.summary}</p>
+        <p class="incident-advice"><strong>Expert advice:</strong> ${item.expert_advice}</p>
+        <a class="inline-link" href="${item.cta_url}">${item.cta_label}</a>
+      </article>
+    `;
+  }).join("");
+};
+
+const incidentFeedRoot = document.querySelector("[data-incident-feed]");
+if (incidentFeedRoot) {
+  fetch("assets/data/incident-watch.json", { cache: "no-store" })
+    .then((res) => res.ok ? res.json() : Promise.reject(new Error("incident-feed-failed")))
+    .then((data) => {
+      const items = Array.isArray(data?.items) ? data.items : [];
+      renderIncidentFeed(items, incidentFeedRoot);
+      trackEvent("incident_feed_loaded", { item_count: String(items.length) });
+    })
+    .catch(() => {
+      renderIncidentFeed([], incidentFeedRoot);
+      trackEvent("incident_feed_failed");
+    });
+}
