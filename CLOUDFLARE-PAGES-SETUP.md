@@ -1,6 +1,6 @@
 # Cloudflare Pages Migration (CodeVertex_Website)
 
-This project is now Cloudflare Pages compatible with native Pages Functions under `functions/api/*`.
+This project is Cloudflare Pages compatible with native Pages Functions under `functions/api/*` and does not require Wrangler deploy commands.
 
 ## What changed
 - Added Cloudflare Pages Functions:
@@ -15,7 +15,6 @@ This project is now Cloudflare Pages compatible with native Pages Functions unde
 - Updated `script.js` form webhook fallback defaults:
   - CRM fallback: `/api/crm-intake`
   - Marketing fallback: `/api/marketing-intake`
-- Added `wrangler.toml` for Cloudflare Pages config.
 
 ## Cloudflare Pages project setup
 1. In Cloudflare Dashboard, go to `Workers & Pages` -> `Create` -> `Pages` -> `Connect to Git`.

@@ -44,7 +44,6 @@ Enterprise cybersecurity marketing and revenue website for CodeVertex.
 ## API and CRM
 - `functions/api/` (Cloudflare Pages Functions)
 - `functions/_shared/`
-- `wrangler.toml`
 - `CLOUDFLARE-PAGES-SETUP.md`
 - `netlify/functions/` (legacy fallback)
 - `netlify.toml` (legacy fallback)
