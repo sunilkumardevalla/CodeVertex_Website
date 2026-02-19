@@ -1,0 +1,12 @@
+CodeVertex Data Processing Addendum (DPA) Summary
+
+This document defines data processing obligations for cybersecurity service delivery.
+
+Core controls:
+1) Roles of controller and processor
+2) Processing purpose and data categories
+3) Security controls and access governance
+4) Incident notification protocol
+5) Deletion and retention commitments
+
+For data protection terms, contact legal@codevertex.io.

@@ -1,0 +1,53 @@
+{
+  "updated_at": "2026-02-19",
+  "items": [
+    {
+      "date": "Feb 2026",
+      "read_time": "8 min read",
+      "title": "Board Cyber Brief Structure",
+      "summary": "How to report cyber risk in executive language with action accountability.",
+      "url": "contact.html",
+      "cta": "Request private briefing"
+    },
+    {
+      "date": "Feb 2026",
+      "read_time": "9 min read",
+      "title": "SOC 2 + Penetration Testing Integration Guide",
+      "summary": "A practical path to align offensive testing outputs with SOC 2 evidence cycles.",
+      "url": "services.html",
+      "cta": "View service coverage"
+    },
+    {
+      "date": "Jan 2026",
+      "read_time": "11 min read",
+      "title": "Cloud IAM Escalation Chains",
+      "summary": "Common privilege pathways and the fastest control interventions.",
+      "url": "case-study-2.html",
+      "cta": "View case evidence"
+    },
+    {
+      "date": "Jan 2026",
+      "read_time": "7 min read",
+      "title": "Pentest Retest Protocol",
+      "summary": "How to verify fixes with evidence quality suitable for audit committees.",
+      "url": "checklist.html",
+      "cta": "Open checklist"
+    },
+    {
+      "date": "Dec 2025",
+      "read_time": "10 min read",
+      "title": "Security Program KPI Model",
+      "summary": "Operational metrics that connect findings to business risk reduction.",
+      "url": "pricing.html",
+      "cta": "Open pricing"
+    },
+    {
+      "date": "Dec 2025",
+      "read_time": "8 min read",
+      "title": "Incident Readiness Tabletop Design",
+      "summary": "How to design realistic incident simulation sessions for executive and SOC teams.",
+      "url": "services.html",
+      "cta": "Explore programs"
+    }
+  ]
+}

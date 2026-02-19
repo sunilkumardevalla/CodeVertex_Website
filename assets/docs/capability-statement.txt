@@ -1,0 +1,42 @@
+CODEVERTEX ENTERPRISE CYBERSECURITY CAPABILITY STATEMENT
+Version: 2026.02
+
+Company Overview
+CodeVertex Software Solutions is a multinational cybersecurity partner delivering
+enterprise offensive security, cloud exposure validation, red teaming, and remediation
+assurance programs for regulated and high-growth organizations.
+
+Core Services
+1) Web and API Penetration Testing
+2) Cloud and Identity Attack-Path Validation
+3) Red Team and Assumed-Breach Simulation
+4) Continuous Security Validation Programs
+5) Executive Cyber Advisory and Governance Reporting
+
+Delivery Model
+- NDA-first engagements
+- Written authorization before testing
+- Named points of contact and escalation matrix
+- Executive and technical reporting cadence
+- Retest-backed closure verification
+
+Framework Alignment
+- SOC 2
+- ISO 27001
+- PCI DSS
+- HIPAA
+- NIST CSF
+- MITRE ATT&CK
+
+Typical Deliverables
+- Executive risk brief and board narrative
+- Technical findings with exploit evidence
+- Prioritized remediation plan with ownership mapping
+- Retest confirmation and closure memo
+
+Regions Served
+USA, Spain, India, Ecuador, and global remote delivery.
+
+Primary Contact
+contact@codevertex.io
+https://codevertex.io

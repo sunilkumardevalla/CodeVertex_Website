@@ -1,0 +1,20 @@
+{
+  "updated_at": "2026-02-19",
+  "kpis": {
+    "qualified_leads": "28",
+    "proposal_win_rate": "31%",
+    "mrr": "$142K",
+    "recurring_share": "54%"
+  },
+  "quarterly_trend": [
+    { "quarter": "Q2 2025", "summary": "Lead quality baseline established", "detail": "Qualified-lead rate reached 41% after form and package alignment." },
+    { "quarter": "Q3 2025", "summary": "Retainer conversion increased", "detail": "Retainer attach from project deals rose to 23%." },
+    { "quarter": "Q4 2025", "summary": "Proposal velocity improved", "detail": "Average proposal turnaround reduced from 11 to 6 days." },
+    { "quarter": "Q1 2026", "summary": "Recurring revenue expansion", "detail": "MRR surpassed $140K with advisory and retainer growth." }
+  ],
+  "top_actions": [
+    { "title": "Increase ABM landing pages", "description": "Launch at least 3 sector ABM pages linked to booking and checkout paths." },
+    { "title": "Scale partner-sourced pipeline", "description": "Activate partner tiers and monthly co-sell review process." },
+    { "title": "Optimize nurture conversion", "description": "Run segmented email sequences and track meeting-book rates per segment." }
+  ]
+}

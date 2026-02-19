@@ -1,0 +1,12 @@
+CodeVertex Rules of Engagement Summary
+
+This document defines testing boundaries and authorization requirements for all assessments.
+
+Included controls:
+1) Written authorization requirement
+2) Scope boundaries and in-scope assets
+3) Testing windows and communication channels
+4) Critical finding escalation process
+5) Evidence handling and closure validation
+
+For engagement-specific terms, contact contact@codevertex.io.

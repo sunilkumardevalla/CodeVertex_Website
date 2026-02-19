@@ -1,0 +1,4 @@
+CodeVertex Public Encryption Key Notice
+
+A public key is not published in this repository.
+For encrypted communications, request the current key via legal@codevertex.io.

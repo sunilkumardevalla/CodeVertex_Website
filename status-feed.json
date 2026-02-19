@@ -1,0 +1,16 @@
+{
+  "updated_at": "2026-02-19T18:00:00Z",
+  "overall": "operational",
+  "components": [
+    { "name": "Client Communication Channels", "status": "operational" },
+    { "name": "Secure Document Exchange", "status": "operational" },
+    { "name": "Assessment Coordination", "status": "operational" }
+  ],
+  "incidents": [
+    {
+      "date": "2026-02-12",
+      "title": "No incidents reported",
+      "summary": "All services remained stable with no customer-impacting events."
+    }
+  ]
+}

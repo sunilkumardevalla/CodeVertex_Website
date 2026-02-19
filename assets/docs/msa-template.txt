@@ -1,0 +1,12 @@
+CodeVertex Master Services Agreement (MSA) Summary
+
+This document outlines the commercial and legal structure used for enterprise cybersecurity engagements.
+
+Key sections:
+1) Services and scope governance
+2) Commercial terms and invoicing model
+3) Confidentiality and data handling obligations
+4) Liability and limitation framework
+5) Termination and post-engagement obligations
+
+For contracting support, contact legal@codevertex.io.

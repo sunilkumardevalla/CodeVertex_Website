@@ -1,0 +1,41 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Compliance Lattice</title>
+  <desc id="desc">A matrix infographic mapping controls to common standards.</desc>
+  <rect width="1200" height="760" rx="28" fill="#111E39"/>
+  <g font-family="Arial, sans-serif" fill="#D7E5FF">
+    <text x="90" y="104" font-size="34" font-weight="700">Control-to-Standard Lattice</text>
+    <text x="90" y="146" font-size="22">Evidence outputs mapped for audit and risk committees</text>
+  </g>
+  <g>
+    <rect x="90" y="190" width="1020" height="470" rx="18" fill="#162B51" stroke="#2A4A7B"/>
+    <g stroke="#2A4A7B">
+      <line x1="90" y1="285" x2="1110" y2="285"/>
+      <line x1="90" y1="380" x2="1110" y2="380"/>
+      <line x1="90" y1="475" x2="1110" y2="475"/>
+      <line x1="90" y1="570" x2="1110" y2="570"/>
+      <line x1="300" y1="190" x2="300" y2="660"/>
+      <line x1="510" y1="190" x2="510" y2="660"/>
+      <line x1="720" y1="190" x2="720" y2="660"/>
+      <line x1="930" y1="190" x2="930" y2="660"/>
+    </g>
+    <g font-family="Arial, sans-serif" font-size="24" fill="#EAF1FF" font-weight="700">
+      <text x="140" y="250">Control Domain</text>
+      <text x="360" y="250">SOC 2</text>
+      <text x="570" y="250">ISO 27001</text>
+      <text x="778" y="250">PCI DSS</text>
+      <text x="982" y="250">HIPAA/GDPR</text>
+    </g>
+    <g font-family="Arial, sans-serif" font-size="22" fill="#C9DBFF">
+      <text x="125" y="344">Identity & Access</text>
+      <text x="125" y="438">Cloud Configuration</text>
+      <text x="125" y="534">Data Protection</text>
+      <text x="125" y="628">Incident Readiness</text>
+    </g>
+    <g fill="#36D4B2">
+      <circle cx="405" cy="336" r="12"/><circle cx="617" cy="336" r="12"/><circle cx="825" cy="336" r="12"/><circle cx="1038" cy="336" r="12"/>
+      <circle cx="405" cy="432" r="12"/><circle cx="617" cy="432" r="12"/><circle cx="825" cy="432" r="12"/><circle cx="1038" cy="432" r="12"/>
+      <circle cx="405" cy="528" r="12"/><circle cx="617" cy="528" r="12"/><circle cx="825" cy="528" r="12"/><circle cx="1038" cy="528" r="12"/>
+      <circle cx="405" cy="622" r="12"/><circle cx="617" cy="622" r="12"/><circle cx="825" cy="622" r="12"/><circle cx="1038" cy="622" r="12"/>
+    </g>
+  </g>
+</svg>

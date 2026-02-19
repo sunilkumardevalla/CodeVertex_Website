@@ -1,0 +1,6 @@
+# Force HTTPS
+http://codevertex.io/* https://codevertex.io/:splat 301!
+http://www.codevertex.io/* https://codevertex.io/:splat 301!
+
+# SPA-style fallback to 404 page
+/* /404.html 404

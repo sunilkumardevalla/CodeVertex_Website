@@ -1,0 +1,31 @@
+CODEVERTEX SECURITY ASSURANCE BRIEF
+Version: 2026.02
+
+Security Governance Principles
+- Authorization-first testing with documented scope boundaries.
+- Least-privilege access to engagement artifacts.
+- Controlled evidence handling and retention practices.
+- Escalation protocol for critical and high-impact findings.
+- Executive visibility through structured status communication.
+
+Operational Controls
+- Secure collaboration channels
+- Confidentiality under NDA
+- Evidence-backed reporting model
+- Remediation accountability tracking
+- Retest and closure validation workflow
+
+Legal and Procurement Readiness
+- MSA, NDA, DPA templates available
+- Rules of engagement template available
+- Security questionnaire package available
+- Procurement and legal workflow documented
+
+Enterprise Confidence Signals
+- Response SLA: leadership reply within 24 hours
+- Program outputs mapped to governance and audit use cases
+- Cross-functional reporting for leadership and engineering teams
+
+Contact
+legal@codevertex.io
+contact@codevertex.io

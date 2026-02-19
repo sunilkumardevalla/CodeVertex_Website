@@ -1,0 +1,8 @@
+Contact: mailto:security@codevertex.io
+Expires: 2027-12-31T23:59:59Z
+Preferred-Languages: en, es
+Canonical: https://codevertex.io/.well-known/security.txt
+Policy: https://codevertex.io/responsible-disclosure.html
+Hiring: https://codevertex.io/about.html
+Encryption: https://codevertex.io/pgp-key.txt
+Acknowledgments: https://codevertex.io/insights.html

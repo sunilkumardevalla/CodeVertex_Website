@@ -1,0 +1,12 @@
+CodeVertex Mutual NDA Summary
+
+This document defines confidentiality obligations between CodeVertex and client stakeholders during pre-engagement and active delivery phases.
+
+Core coverage:
+1) Definition of confidential information
+2) Permitted use and disclosure restrictions
+3) Duration of obligations
+4) Return or destruction of materials
+5) Legal exceptions and required disclosures
+
+For legal coordination, contact legal@codevertex.io.

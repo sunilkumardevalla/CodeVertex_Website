@@ -1,0 +1,12 @@
+CodeVertex Security Questionnaire Summary
+
+This package provides standard responses for vendor security due diligence.
+
+Coverage areas:
+1) Security governance and policy framework
+2) Access management and least-privilege model
+3) Data handling and evidence protection controls
+4) Vulnerability management and remediation validation
+5) Incident response and escalation communications
+
+For the latest questionnaire packet, contact contact@codevertex.io.

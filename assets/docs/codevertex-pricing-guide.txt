@@ -1,0 +1,68 @@
+CodeVertex Enterprise Pricing Guide (2026)
+
+Company: CodeVertex Software Solutions
+Website: https://codevertex.io
+Document owner: Commercial Strategy Team
+Version date: February 19, 2026
+
+1) COMMERCIAL MODEL
+- Published pricing on the website is shown as starting bands for procurement clarity.
+- Final price is confirmed after scope, authorization, and environment complexity review.
+- Engagements follow NDA-first and written authorization controls.
+
+2) FIXED-SCOPE PROJECT PACKAGES
+A) Attack Surface Sprint
+- Starting band: USD 12,000 to 25,000
+- Typical delivery window: 2 to 3 weeks
+- Typical coverage: single web/API/cloud priority surface
+- Deliverables: exploit-backed findings, remediation guidance, retest cycle
+
+B) Core Assurance Program
+- Starting band: USD 30,000 to 65,000
+- Typical delivery window: 4 to 6 weeks
+- Typical coverage: web + API + cloud baseline validation
+- Deliverables: executive + technical reports, remediation workshop
+
+C) Enterprise Offensive Validation
+- Starting band: USD 75,000 to 180,000+
+- Typical delivery window: 6 to 10 weeks
+- Typical coverage: app/API/cloud/IAM with threat-led validation
+- Deliverables: closure tracker, retest memo, governance narrative
+
+3) RECURRING RETAINERS
+A) Retainer Starter: USD 6,000 to 12,000 per month
+B) Retainer Growth: USD 15,000 to 30,000 per month
+C) Retainer Enterprise: USD 35,000 to 80,000+ per month
+
+Retainers are recommended for continuous validation and measurable risk reduction over time.
+
+4) STRATEGIC ADD-ONS
+- vCISO Advisory: USD 8,000 to 25,000 per month
+- Compliance Readiness: USD 20,000 to 70,000 per engagement
+- Incident Readiness: USD 10,000 to 40,000 per engagement
+
+5) BUYER GUIDANCE
+- Entry path: Attack Surface Sprint
+- Growth path: Core Assurance Program
+- Enterprise path: Offensive Validation + Retainer
+- Typical target response SLA: leadership response within 24 hours
+
+6) COMMERCIAL TERMS OVERVIEW
+- Scope assumptions and exclusions are defined in the statement of work.
+- Change requests follow a documented change-control process.
+- All testing activity requires written authorization and agreed test windows.
+- Payment schedule depends on package and procurement requirements.
+
+7) HOW TO REQUEST A CUSTOM QUOTE
+- Visit: https://codevertex.io/contact.html
+- Include: scope, timeline, budget range, region, and package interest
+- A qualified discovery call is scheduled after intake review
+
+8) REGIONAL DELIVERY COVERAGE
+- USA
+- Spain
+- India
+- Ecuador
+- Global remote delivery
+
+Note: This document is an owned commercial reference by CodeVertex.

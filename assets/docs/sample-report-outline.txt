@@ -1,0 +1,12 @@
+CodeVertex Sample Security Report Outline
+
+A standard structure for enterprise-ready reporting.
+
+Sections:
+1) Executive summary
+2) Scope and methodology
+3) Risk overview by severity
+4) Technical findings and exploit evidence
+5) Remediation actions by owner
+6) Retest outcomes and closure status
+7) Governance recommendations and next-cycle priorities

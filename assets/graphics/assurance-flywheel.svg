@@ -1,0 +1,33 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Assurance Flywheel</title>
+  <desc id="desc">A circular diagram representing scope, test, report and closure cycle.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2F8FF"/>
+      <stop offset="1" stop-color="#E4EDFF"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="300" y1="100" x2="900" y2="660" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D7BE8"/>
+      <stop offset="1" stop-color="#0DC6A2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="url(#bg2)"/>
+  <circle cx="600" cy="380" r="250" stroke="url(#ring)" stroke-width="56"/>
+  <circle cx="600" cy="380" r="158" fill="#FFFFFF"/>
+  <g fill="#10335F" font-family="Arial, sans-serif">
+    <text x="536" y="385" font-size="34" font-weight="700">ASSURE</text>
+    <text x="536" y="425" font-size="34" font-weight="700">CYCLE</text>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#10335F" font-size="28" font-weight="700">
+    <text x="555" y="118">Scope</text>
+    <text x="885" y="390">Test</text>
+    <text x="555" y="688">Report</text>
+    <text x="190" y="390">Retest</text>
+  </g>
+  <g fill="#1A4D84" font-family="Arial, sans-serif" font-size="22">
+    <text x="490" y="170">Risk alignment and legal authorization</text>
+    <text x="815" y="455">Manual exploitability validation</text>
+    <text x="475" y="620">Executive narrative + technical detail</text>
+    <text x="120" y="455">Closure proof and business sign-off</text>
+  </g>
+</svg>

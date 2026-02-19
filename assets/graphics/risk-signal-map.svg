@@ -1,0 +1,52 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Enterprise Risk Signal Map</title>
+  <desc id="desc">A stylized risk dashboard showing exposure levels and mitigation progress.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1733"/>
+      <stop offset="1" stop-color="#133C74"/>
+    </linearGradient>
+    <linearGradient id="line" x1="200" y1="140" x2="980" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#41E8C5"/>
+      <stop offset="1" stop-color="#4B7BFF"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#19335E"/>
+      <stop offset="1" stop-color="#122747"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="url(#bg)"/>
+  <g opacity="0.35">
+    <path d="M80 660C260 550 350 590 500 480C660 360 760 420 1120 170" stroke="url(#line)" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="500" cy="480" r="16" fill="#41E8C5"/>
+    <circle cx="760" cy="420" r="16" fill="#4B7BFF"/>
+  </g>
+  <rect x="70" y="80" width="340" height="180" rx="22" fill="url(#card)" stroke="#2A5EA0"/>
+  <text x="100" y="132" fill="#A8C4F2" font-family="Arial, sans-serif" font-size="30">Identity Risk</text>
+  <text x="100" y="195" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="56" font-weight="700">93%</text>
+  <rect x="100" y="216" width="250" height="10" rx="5" fill="#294E80"/>
+  <rect x="100" y="216" width="186" height="10" rx="5" fill="#41E8C5"/>
+
+  <rect x="450" y="80" width="300" height="180" rx="22" fill="url(#card)" stroke="#2A5EA0"/>
+  <text x="480" y="132" fill="#A8C4F2" font-family="Arial, sans-serif" font-size="30">Cloud Exposure</text>
+  <text x="480" y="195" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="56" font-weight="700">67%</text>
+  <rect x="480" y="216" width="220" height="10" rx="5" fill="#294E80"/>
+  <rect x="480" y="216" width="132" height="10" rx="5" fill="#4B7BFF"/>
+
+  <rect x="790" y="80" width="340" height="180" rx="22" fill="url(#card)" stroke="#2A5EA0"/>
+  <text x="820" y="132" fill="#A8C4F2" font-family="Arial, sans-serif" font-size="30">Remediation</text>
+  <text x="820" y="195" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="56" font-weight="700">82%</text>
+  <rect x="820" y="216" width="250" height="10" rx="5" fill="#294E80"/>
+  <rect x="820" y="216" width="205" height="10" rx="5" fill="#41E8C5"/>
+
+  <rect x="70" y="310" width="1060" height="380" rx="24" fill="#0E2242" stroke="#2A5EA0"/>
+  <text x="110" y="368" fill="#A8C4F2" font-family="Arial, sans-serif" font-size="30">Threat Path Compression Timeline</text>
+  <path d="M130 620C220 580 275 530 340 520C420 506 480 560 550 540C640 514 700 420 780 410C870 398 910 490 990 470C1035 458 1065 430 1090 400" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#D9E7FF" font-family="Arial, sans-serif" font-size="24">
+    <text x="130" y="665">Kickoff</text>
+    <text x="330" y="665">Validation</text>
+    <text x="540" y="665">Remediation</text>
+    <text x="760" y="665">Retest</text>
+    <text x="970" y="665">Closure</text>
+  </g>
+</svg>

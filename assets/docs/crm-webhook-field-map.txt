@@ -1,0 +1,44 @@
+CodeVertex CRM Webhook Field Mapping (Contact Form)
+Version date: February 19, 2026
+
+Endpoint
+- Source: window.CV_CRM_WEBHOOK OR <meta name="cv-crm-webhook" content="...">
+- Method: POST
+- Content-Type: application/json
+- Payload source: Object.fromEntries(new FormData(form).entries())
+
+Core form fields
+- name (string, required)
+- email (string, required)
+- company (string, required)
+- role (string, optional)
+- scope (enum)
+- package_interest (enum)
+- timeline (enum)
+- budget (enum, optional)
+- region (string)
+- message (string)
+- reference_link (url, optional)
+- locale (language code)
+
+Auto-attached routing fields (hidden)
+- lead_score (number as string)
+- lead_tier (standard|growth|enterprise)
+- lead_priority (nurture|normal|high)
+- revenue_track (project|recurring|advisory)
+
+Scoring model summary
+- Base score starts at 20.
+- package_interest, budget, timeline, and scope each add weighted points.
+- lead_tier, lead_priority, and revenue_track are derived from score + selected intent.
+
+Routing recommendation
+- If lead_priority=high OR lead_tier=enterprise -> assign to enterprise sales queue.
+- If revenue_track=recurring -> trigger retainer playbook sequence.
+- If lead_priority=nurture -> add to educational drip + 30-day follow-up.
+
+Implementation location
+- script.js
+  - computeLeadRouting(form)
+  - upsertHiddenField(form, name, value)
+  - async submission handler under form[data-async-form='true']
