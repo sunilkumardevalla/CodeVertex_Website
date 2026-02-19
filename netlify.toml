@@ -16,3 +16,8 @@
   from = "/api/marketing-intake"
   to = "/.netlify/functions/marketing-intake"
   status = 200
+
+[[redirects]]
+  from = "/api/router-health"
+  to = "/.netlify/functions/router-health"
+  status = 200

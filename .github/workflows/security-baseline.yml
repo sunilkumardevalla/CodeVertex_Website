@@ -1,0 +1,14 @@
+name: Security Baseline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  security-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run security baseline checks
+        run: bash scripts/security-check.sh
