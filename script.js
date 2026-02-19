@@ -2056,6 +2056,50 @@ if (document.querySelector("[data-revenue-kpis]")) {
     .catch(() => trackEvent("revenue_dashboard_failed"));
 }
 
+const renderRoutingHealth = (data) => {
+  const kpiRoot = document.querySelector("[data-routing-kpis]");
+  if (kpiRoot && data?.kpis) {
+    const map = [
+      ["Delivery Success", data.kpis.delivery_success || "--"],
+      ["Avg Delivery Latency", data.kpis.avg_delivery_latency || "--"],
+      ["Dead-Letter Rate", data.kpis.dead_letter_rate || "--"],
+      ["High-Priority SLA", data.kpis.high_priority_sla || "--"]
+    ];
+    kpiRoot.innerHTML = map.map(([label, value]) => `<article class="metric"><p>${label}</p><strong>${value}</strong></article>`).join("");
+  }
+
+  const queueRoot = document.querySelector("[data-routing-queues]");
+  if (queueRoot && Array.isArray(data?.queues)) {
+    queueRoot.innerHTML = data.queues.map((item) => (
+      `<article class="doc-card reveal"><h3>${item.name}</h3><p>Status: ${item.status} · Queue depth: ${item.depth}</p><p>SLA: ${item.processing_sla}</p><p>${item.note}</p></article>`
+    )).join("");
+  }
+
+  const attemptsRoot = document.querySelector("[data-routing-attempts]");
+  if (attemptsRoot && Array.isArray(data?.attempt_profile)) {
+    attemptsRoot.innerHTML = data.attempt_profile.map((item) => (
+      `<article class="card reveal"><h3>${item.label}</h3><p>${item.value}</p></article>`
+    )).join("");
+  }
+
+  const incidentsRoot = document.querySelector("[data-routing-incidents]");
+  if (incidentsRoot && Array.isArray(data?.incidents)) {
+    incidentsRoot.innerHTML = data.incidents.map((item, idx) => (
+      `<article class="timeline-step"><span class="index">${String(idx + 1).padStart(2, "0")}</span><div><h3>${item.title}</h3><p>${item.date} · ${item.status} · ${item.summary}</p></div></article>`
+    )).join("");
+  }
+};
+
+if (document.querySelector("[data-routing-kpis]")) {
+  fetch("assets/data/routing-health.json", { cache: "no-store" })
+    .then((res) => res.ok ? res.json() : Promise.reject(new Error("routing-health-failed")))
+    .then((data) => {
+      renderRoutingHealth(data);
+      trackEvent("routing_health_loaded", { updated_at: data.updated_at || "" });
+    })
+    .catch(() => trackEvent("routing_health_failed"));
+}
+
 const consentResetBtn = document.querySelector("[data-consent-reset]");
 if (consentResetBtn) {
   consentResetBtn.addEventListener("click", () => {
