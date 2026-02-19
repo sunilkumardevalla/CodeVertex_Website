@@ -1,0 +1,25 @@
+name: Lighthouse Production Audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 14 * * 1"
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse against production pages
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://codevertex.io/
+            https://codevertex.io/services.html
+            https://codevertex.io/pricing.html
+            https://codevertex.io/contact.html
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: ./lighthouserc.json

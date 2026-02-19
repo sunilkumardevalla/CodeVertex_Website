@@ -19,17 +19,29 @@ if rg -n 'name="cv-track-endpoint" content=""' *.html >/dev/null; then
   warn_msg "Tracking endpoint is empty in one or more HTML files"
 fi
 
-# 2) Placeholder PGP key
-if rg -n 'placeholder|replace with production|BEGIN PGP PUBLIC KEY BLOCK' pgp-key.txt >/dev/null; then
+# 2) Turnstile key not configured on high-value forms (optional but recommended)
+if rg -n 'data-turnstile-required="true"' contact.html booking.html checkout.html newsletter.html partner-program.html >/dev/null; then
+  if ! rg -n 'cv-turnstile-sitekey' *.html >/dev/null; then
+    warn_msg "Turnstile is enabled in forms but no cv-turnstile-sitekey meta tag found"
+  fi
+fi
+
+# 3) Placeholder PGP key
+if rg -n 'placeholder|replace with production' pgp-key.txt >/dev/null; then
   warn_msg "pgp-key.txt appears to contain placeholder content"
 fi
 
-# 3) Placeholder docs
+# 4) Placeholder docs
 if rg -n 'Placeholder|replace this file with your approved' assets/docs/*.txt >/dev/null; then
   warn_msg "One or more docs in assets/docs are still placeholders"
 fi
 
-# 4) Status feed freshness (best effort)
+# 5) Netlify function scaffolding present
+for f in netlify/functions/track.js netlify/functions/crm-intake.js netlify/functions/marketing-intake.js netlify.toml; do
+  [[ -f "$f" ]] || warn_msg "missing deployment/api scaffold file: $f"
+done
+
+# 6) Status feed freshness (best effort)
 updated=$(rg -o '"updated_at"\s*:\s*"[^"]+"' status-feed.json | sed -E 's/.*"([0-9T:\-]+Z)"/\1/' || true)
 if [[ -z "${updated:-}" ]]; then
   warn_msg "status-feed.json updated_at is missing"

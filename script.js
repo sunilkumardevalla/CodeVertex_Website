@@ -735,6 +735,7 @@ const langSelect = document.querySelector("#lang-switch");
 const themeSelect = document.querySelector("#theme-switch");
 const queryLang = new URLSearchParams(window.location.search).get("lang");
 const trackEndpoint = window.CV_TRACK_ENDPOINT || document.querySelector("meta[name='cv-track-endpoint']")?.content || "";
+const turnstileSiteKey = window.CV_TURNSTILE_SITEKEY || document.querySelector("meta[name='cv-turnstile-sitekey']")?.content || "";
 
 if (body) {
   const raw = window.location.pathname.split("/").pop() || "index.html";
@@ -1163,7 +1164,9 @@ const injectSchema = (lang) => {
         "url": "https://codevertex.io/",
         "email": "contact@codevertex.io",
         "logo": "https://codevertex.io/logo-wordmark.png",
-        "sameAs": []
+        "sameAs": [
+          "https://github.com/sunilkumardevalla/CodeVertex_Website"
+        ]
       },
       {
         "@type": "WebSite",
@@ -1505,6 +1508,37 @@ const attachAttributionFields = (form) => {
 
 persistAttribution();
 
+const ensureTurnstileToken = (form) => {
+  const required = form.hasAttribute("data-turnstile-required");
+  if (!required || !turnstileSiteKey) return true;
+  const token = form.querySelector("[name='cf-turnstile-response']")?.value || "";
+  return token.trim().length > 0;
+};
+
+if (turnstileSiteKey && !window.turnstile && !document.querySelector("script[data-cv-turnstile]")) {
+  const ts = document.createElement("script");
+  ts.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+  ts.async = true;
+  ts.defer = true;
+  ts.setAttribute("data-cv-turnstile", "true");
+  document.head.appendChild(ts);
+}
+
+const renderTurnstileWidgets = () => {
+  if (!turnstileSiteKey || !window.turnstile) return;
+  document.querySelectorAll("form[data-turnstile-required]").forEach((form) => {
+    if (form.querySelector(".cv-turnstile")) return;
+    const target = form.querySelector("[data-turnstile-widget]") || form;
+    const widgetHost = document.createElement("div");
+    widgetHost.className = "cv-turnstile";
+    target.appendChild(widgetHost);
+    window.turnstile.render(widgetHost, {
+      sitekey: turnstileSiteKey,
+      callback: (token) => upsertHiddenField(form, "cf-turnstile-response", token)
+    });
+  });
+}
+
 document.querySelectorAll("form[data-async-form='true']").forEach((form) => {
   const btn = form.querySelector("button[type='submit']");
   const status = form.querySelector("[data-form-status]");
@@ -1522,6 +1556,7 @@ document.querySelectorAll("form[data-async-form='true']").forEach((form) => {
     try {
       const honeypot = form.querySelector("[name='website']")?.value || "";
       if (honeypot.trim()) throw new Error("bot-detected");
+      if (!ensureTurnstileToken(form)) throw new Error("turnstile-required");
 
       const now = Date.now();
       const last = Number(localStorage.getItem("cvLastSubmitTs") || "0");
@@ -1594,6 +1629,7 @@ document.querySelectorAll("form[data-async-form='true']").forEach((form) => {
       if (_err?.message === "slot-required") status.textContent = "Please select a preferred time slot before submitting.";
       else if (_err?.message === "rate-limited") status.textContent = "Please wait a few seconds before submitting again.";
       else if (_err?.message === "bot-detected") status.textContent = "Submission blocked. Please retry.";
+      else if (_err?.message === "turnstile-required") status.textContent = "Please complete verification before submitting.";
       else status.textContent = dict["form.fail"];
       status.classList.add("is-error");
     } finally {
