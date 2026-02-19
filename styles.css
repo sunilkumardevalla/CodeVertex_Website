@@ -6643,3 +6643,81 @@ figcaption {
     aspect-ratio: 16 / 10;
   }
 }
+
+/* Professional radial infographic labels: wrapped text above each circle */
+.infograph-hub .radial-meters,
+.services-infograph .radial-meters,
+.industries-infograph .radial-meters,
+.about-infograph .radial-meters {
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.infograph-hub .ring,
+.services-infograph .ring,
+.industries-infograph .ring,
+.about-infograph .ring {
+  width: 88px;
+  aspect-ratio: auto;
+  display: grid;
+  grid-template-rows: auto 88px;
+  justify-items: center;
+  align-items: start;
+  gap: 8px;
+  border-radius: 0;
+  background: none;
+}
+
+.infograph-hub .ring::before,
+.services-infograph .ring::before,
+.industries-infograph .ring::before,
+.about-infograph .ring::before {
+  position: static;
+  inset: auto;
+  width: 88px;
+  height: 88px;
+  border-radius: 999px;
+  grid-row: 2;
+}
+
+.infograph-hub .ring span,
+.services-infograph .ring span,
+.industries-infograph .ring span,
+.about-infograph .ring span {
+  grid-row: 1;
+  width: min(112px, 100%);
+  white-space: normal;
+  text-wrap: balance;
+  line-height: 1.25;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text-soft) 92%, var(--text));
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .infograph-hub .ring,
+  .services-infograph .ring,
+  .industries-infograph .ring,
+  .about-infograph .ring {
+    width: 82px;
+    grid-template-rows: auto 82px;
+    gap: 7px;
+  }
+
+  .infograph-hub .ring::before,
+  .services-infograph .ring::before,
+  .industries-infograph .ring::before,
+  .about-infograph .ring::before {
+    width: 82px;
+    height: 82px;
+  }
+
+  .infograph-hub .ring span,
+  .services-infograph .ring span,
+  .industries-infograph .ring span,
+  .about-infograph .ring span {
+    width: min(102px, 100%);
+    font-size: 0.72rem;
+  }
+}
