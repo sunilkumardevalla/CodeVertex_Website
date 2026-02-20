@@ -6834,3 +6834,15 @@ body[data-blog-slug="scope-pentest-2026"] .assurance-flywheel-figure figcaption 
   line-height: 1.5;
   font-size: 0.84rem;
 }
+
+/* Header nav width refinement: keep desktop menu container content-fit */
+@media (min-width: 981px) {
+  .header-inner .main-nav {
+    flex: 0 1 auto;
+    width: auto;
+    max-width: fit-content;
+    margin-inline: auto;
+    justify-content: center;
+    overflow: visible;
+  }
+}
