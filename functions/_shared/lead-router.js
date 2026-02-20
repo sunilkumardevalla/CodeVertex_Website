@@ -235,10 +235,13 @@ export const routeLead = async ({ channel, payload, leadId, sourceIp, env }) => 
   };
 
   const crmProvider = String(env.CV_CRM_PROVIDER || "webhook").toLowerCase();
-  if (channel === "crm" && crmProvider === "hubspot") {
+  const marketingProvider = String(env.CV_MARKETING_PROVIDER || (crmProvider === "hubspot" ? "hubspot" : "webhook")).toLowerCase();
+  const channelProvider = channel === "crm" ? crmProvider : channel === "marketing" ? marketingProvider : "webhook";
+
+  if (channelProvider === "hubspot" && (channel === "crm" || channel === "marketing")) {
     const hubspotDelivery = await deliverHubspotContact(envelope, env);
     if (hubspotDelivery.delivered) {
-      console.log("[cv-router][hubspot-delivered]", JSON.stringify({ routing_id: routingId, status: hubspotDelivery.status }));
+      console.log("[cv-router][hubspot-delivered]", JSON.stringify({ routing_id: routingId, channel, status: hubspotDelivery.status }));
       return {
         routed: true,
         routing_id: routingId,
@@ -248,7 +251,7 @@ export const routeLead = async ({ channel, payload, leadId, sourceIp, env }) => 
         attempts: [hubspotDelivery]
       };
     }
-    console.error("[cv-router][hubspot-failed]", JSON.stringify({ routing_id: routingId, ...hubspotDelivery }));
+    console.error("[cv-router][hubspot-failed]", JSON.stringify({ routing_id: routingId, channel, ...hubspotDelivery }));
   }
 
   if (!destinations.length) {

@@ -17,11 +17,18 @@ export async function onRequest(context) {
   if (request.method !== "GET") return json(405, { error: "method_not_allowed", request_id: requestId }, apiHeaders(requestId, origin, env, "GET, OPTIONS"));
   if (!isAllowedOrigin(origin, env)) return json(403, { error: "origin_not_allowed", request_id: requestId }, apiHeaders(requestId, origin, env, "GET, OPTIONS"));
 
+  const crmProvider = String(env.CV_CRM_PROVIDER || "webhook").toLowerCase();
+  const marketingProvider = String(env.CV_MARKETING_PROVIDER || (crmProvider === "hubspot" ? "hubspot" : "webhook")).toLowerCase();
+
   const crmTargets = [configured(env.CV_CRM_ENTERPRISE_WEBHOOK), configured(env.CV_CRM_PRIMARY_WEBHOOK), configured(env.CV_CRM_SECONDARY_WEBHOOK)].filter(Boolean).length;
   const marketingTargets = [configured(env.CV_MARKETING_URGENT_WEBHOOK), configured(env.CV_MARKETING_PRIMARY_WEBHOOK), configured(env.CV_MARKETING_SECONDARY_WEBHOOK)].filter(Boolean).length;
+  const hubspotReady = configured(env.CV_HUBSPOT_PRIVATE_APP_TOKEN);
+
+  const crmReady = crmProvider === "hubspot" ? hubspotReady : crmTargets > 0;
+  const marketingReady = marketingProvider === "hubspot" ? hubspotReady : marketingTargets > 0;
 
   const status = {
-    ok: crmTargets > 0 && marketingTargets > 0,
+    ok: crmReady && marketingReady,
     updated_at: new Date().toISOString(),
     request_id: requestId,
     router: {
