@@ -1382,7 +1382,7 @@ const normalizeNavigation = () => {
     if (isPrimaryNav) {
       navEl.innerHTML = allowed.map((item) => {
         const active = path === item.href || (path === "" && item.href === "index.html");
-        return `<a href="" data-i18n=""></a>`;
+        return `<a href="${item.href}" data-i18n="${item.key}"${active ? " class=\"active\"" : ""}>${item.label}</a>`;
       }).join("");
     }
   }
@@ -1392,11 +1392,11 @@ const normalizeNavigation = () => {
     const hasContentGroup = /content/i.test((col.querySelector(".footer-group-title")?.textContent || "").trim());
     if (!hasServicesGroup && !hasContentGroup) return;
     const ensureFooterLink = (href, label, insertAfterHref = "") => {
-      if (col.querySelector(`a[href=""]`)) return;
+      if (col.querySelector(`a[href="${href}"]`)) return;
       const link = document.createElement("a");
       link.href = href;
       link.textContent = label;
-      const afterEl = insertAfterHref ? col.querySelector(`a[href=""]`) : null;
+      const afterEl = insertAfterHref ? col.querySelector(`a[href="${insertAfterHref}"]`) : null;
       if (afterEl && afterEl.nextSibling) col.insertBefore(link, afterEl.nextSibling);
       else col.appendChild(link);
     };
