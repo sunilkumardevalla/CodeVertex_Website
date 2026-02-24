@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /analytics-dashboard
+
+Host: https://mfi.ngo
+Sitemap: https://mfi.ngo/sitemap.xml

@@ -1,0 +1,21 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="220" y="120" width="1160" height="660" rx="34" fill="#fff" opacity="0.95"/>
+  <circle cx="400" cy="360" r="120" fill="#69B6D4" opacity="0.28"/>
+  <circle cx="1220" cy="540" r="150" fill="#F0AB2F" opacity="0.26"/>
+  <rect x="304" y="208" width="992" height="390" rx="24" fill="url(#panel)"/>
+  <circle cx="800" cy="403" r="62" fill="#fff"/>
+  <path d="M780 372L840 403L780 434V372Z" fill="#412063"/>
+  <text x="304" y="685" fill="#231A38" font-size="44" font-family="Avenir, Arial, sans-serif" font-weight="700">TeenSafe Workshop Module: Skills for Safer Family Dialogues</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F1FBFF"/>
+      <stop offset="0.54" stop-color="#F9F2FF"/>
+      <stop offset="1" stop-color="#ECFAFF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="304" y1="208" x2="1296" y2="598" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5E2B83"/>
+      <stop offset="1" stop-color="#69B6D4"/>
+    </linearGradient>
+  </defs>
+</svg>

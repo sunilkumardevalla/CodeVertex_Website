@@ -1,0 +1,11 @@
+<svg width="640" height="420" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" rx="28" fill="#F8FDFE"/>
+  <rect x="106" y="92" width="428" height="232" rx="18" fill="#E4F2FA"/>
+  <path d="M156 266L228 204L286 242L352 158L430 224L488 176" stroke="#63308A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="228" cy="204" r="11" fill="#67B7D5"/>
+  <circle cx="352" cy="158" r="11" fill="#67B7D5"/>
+  <circle cx="488" cy="176" r="11" fill="#67B7D5"/>
+  <rect x="146" y="128" width="130" height="20" rx="10" fill="#CFE6F3"/>
+  <rect x="300" y="128" width="180" height="20" rx="10" fill="#D8CEF0"/>
+  <text x="320" y="368" text-anchor="middle" font-family="Verdana" font-size="22" fill="#2D2A48">Clarity and progress</text>
+</svg>

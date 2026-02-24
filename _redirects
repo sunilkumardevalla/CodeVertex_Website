@@ -5,6 +5,8 @@
 /blog/tag/api-security /blog.html?category=API%20Security 301
 /blog/tag/executive-strategy /blog.html?category=Executive%20Strategy 301
 /blog/tag/cloud-security /blog.html?category=Cloud%20Security 301
+/dev/mfi-website /dev/mfi-website/ 301
+/media/* /dev/mfi-website/media/:splat 200
 
 # Fallback
 /* /404.html 404
