@@ -1,6 +1,4 @@
 # Cloudflare Pages-safe redirects (path-based only)
-/blog /blog.html 301
-/incident-watch /incident-watch.html 301
 /blog/tag/penetration-testing /blog.html?category=Penetration%20Testing 301
 /blog/tag/api-security /blog.html?category=API%20Security 301
 /blog/tag/executive-strategy /blog.html?category=Executive%20Strategy 301
