@@ -1,4 +1,6 @@
 # Cloudflare Pages-safe redirects (path-based only)
+/mfi /dev/mfi-website/ 301
+/MFI /dev/mfi-website/ 301
 /DEV/MFI-WEBSITE /dev/mfi-website/ 301
 /dev/MFI-WEBSITE /dev/mfi-website/ 301
 /Dev/Mfi-Website /dev/mfi-website/ 301
