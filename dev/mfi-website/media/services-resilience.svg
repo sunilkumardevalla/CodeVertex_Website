@@ -1,9 +1,0 @@
-<svg width="640" height="420" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="420" rx="28" fill="#FFF8EE"/>
-  <circle cx="320" cy="190" r="110" fill="#F0AB2F" fill-opacity="0.18"/>
-  <path d="M230 286C230 236.294 270.294 196 320 196C369.706 196 410 236.294 410 286V312H230V286Z" fill="#63308A"/>
-  <circle cx="320" cy="166" r="40" fill="#63308A"/>
-  <path d="M126 318H514" stroke="#E9D4B0" stroke-width="16" stroke-linecap="round"/>
-  <path d="M170 318C196 294 228 282 260 282C288 282 305 290 326 301C347 313 363 322 386 322C425 322 456 295 474 266" stroke="#67B7D5" stroke-width="8" stroke-linecap="round"/>
-  <text x="320" y="370" text-anchor="middle" font-family="Verdana" font-size="22" fill="#2D2A48">Build resilience</text>
-</svg>

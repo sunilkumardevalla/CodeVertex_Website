@@ -14,13 +14,3 @@ branch="$(git rev-parse --abbrev-ref HEAD)"
 remote="$(git config --local --get hooks.autopush.remote || echo origin)"
 
 git push "$remote" "$branch"
-
-# Mirror MFI clone changes into the dedicated MFI repository.
-# Disable with:
-#   git config --local hooks.mfi-mirror.enabled false
-if [ "$(git config --local --get hooks.mfi-mirror.enabled || echo true)" = "true" ]; then
-  if git diff-tree --no-commit-id --name-only -r HEAD | grep -Eq '^dev/(mfi-website|Mfi-Website)/'; then
-    repo_root="$(git rev-parse --show-toplevel)"
-    "$repo_root/scripts/push-mfi-mirror.sh" "Mirror from CodeVertex commit $(git rev-parse --short HEAD)"
-  fi
-fi

@@ -1,14 +1,13 @@
 # Cloudflare Pages-safe redirects (path-based only)
 /mfi /mfi/ 301
 /MFI /mfi/ 301
-/DEV/MFI-WEBSITE /dev/Mfi-Website/ 301
-/dev/MFI-WEBSITE /dev/Mfi-Website/ 301
-/Dev/Mfi-Website /dev/Mfi-Website/ 301
+/DEV/MFI-WEBSITE /mfi/ 301
+/dev/MFI-WEBSITE /mfi/ 301
+/Dev/Mfi-Website /mfi/ 301
 /blog/tag/penetration-testing /blog?category=Penetration%20Testing 301
 /blog/tag/api-security /blog?category=API%20Security 301
 /blog/tag/executive-strategy /blog?category=Executive%20Strategy 301
 /blog/tag/cloud-security /blog?category=Cloud%20Security 301
-/dev/Mfi-Website /dev/Mfi-Website/ 301
 /media/* /mfi/media/:splat 200
 https://www.codevertex.io/* https://codevertex.io/:splat 301!
 
