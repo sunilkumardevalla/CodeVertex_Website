@@ -1,16 +1,15 @@
 # Cloudflare Pages-safe redirects (path-based only)
-/mfi /dev/mfi-website/ 301
-/mfi/ /dev/mfi-website/ 301
-/MFI /dev/mfi-website/ 301
-/DEV/MFI-WEBSITE /dev/mfi-website/ 301
-/dev/MFI-WEBSITE /dev/mfi-website/ 301
-/Dev/Mfi-Website /dev/mfi-website/ 301
+/mfi /mfi/ 301
+/MFI /mfi/ 301
+/DEV/MFI-WEBSITE /dev/Mfi-Website/ 301
+/dev/MFI-WEBSITE /dev/Mfi-Website/ 301
+/Dev/Mfi-Website /dev/Mfi-Website/ 301
 /blog/tag/penetration-testing /blog?category=Penetration%20Testing 301
 /blog/tag/api-security /blog?category=API%20Security 301
 /blog/tag/executive-strategy /blog?category=Executive%20Strategy 301
 /blog/tag/cloud-security /blog?category=Cloud%20Security 301
-/dev/mfi-website /dev/mfi-website/ 301
-/media/* /dev/mfi-website/media/:splat 200
+/dev/Mfi-Website /dev/Mfi-Website/ 301
+/media/* /mfi/media/:splat 200
 https://www.codevertex.io/* https://codevertex.io/:splat 301!
 
 # Fallback

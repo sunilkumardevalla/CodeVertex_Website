@@ -1,0 +1,34 @@
+#!/bin/sh
+set -eu
+
+# Auto-sync MFI clone paths before commit.
+# Disable temporarily with:
+#   git config --local hooks.mfi-sync.enabled false
+if [ "$(git config --local --get hooks.mfi-sync.enabled || echo true)" = "false" ]; then
+  exit 0
+fi
+
+staged_files="$(git diff --cached --name-only --diff-filter=ACMR || true)"
+[ -z "$staged_files" ] && exit 0
+
+mfi_changed=false
+dev_changed=false
+
+echo "$staged_files" | grep -q '^mfi/' && mfi_changed=true || true
+echo "$staged_files" | grep -Eq '^dev/(mfi-website|Mfi-Website)/' && dev_changed=true || true
+
+if [ "$mfi_changed" = false ] && [ "$dev_changed" = false ]; then
+  exit 0
+fi
+
+if [ "$mfi_changed" = true ]; then
+  echo "pre-commit: 'mfi/' is no longer the main source."
+  echo "Main source is '/Users/sunny/Desktop/Files/Work/Dev/MFI-Website/out'."
+  echo "Edit that main path or use 'dev/Mfi-Website/' in this repo."
+  exit 1
+fi
+
+scripts/sync-mfi-clone.sh dev-to-main
+scripts/sync-mfi-clone.sh main-to-dev
+
+git add -A dev/Mfi-Website
