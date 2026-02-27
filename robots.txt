@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /dev/mfi-website/
 
 Host: https://codevertex.io
 Sitemap: https://codevertex.io/sitemap.xml
